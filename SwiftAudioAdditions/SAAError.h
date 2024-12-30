@@ -11,6 +11,7 @@
 
 #import <Foundation/NSObjCRuntime.h>
 #import <Foundation/NSError.h>
+#import <AudioToolbox/AudioConverter.h>
 #include <AudioToolbox/AUComponent.h>
 #include <AudioToolbox/AudioFile.h>
 #include <AudioToolbox/ExtendedAudioFile.h>
@@ -32,7 +33,7 @@
 #endif
 
 extern NSErrorDomain const SAACoreAudioErrorDomain;
-//! Errors found in the audio frameworks of Mac OS X/iOS
+//! Errors found in the audio frameworks of macOS/iOS
 typedef MTS_ERROR_ENUM(OSStatus, SAACoreAudioErrorDomain, SAACoreAudioError) {
 	SAACoreAudioErrorInvalidProperty = kAudioUnitErr_InvalidProperty,
 	SAACoreAudioErrorInvalidParameter = kAudioUnitErr_InvalidParameter,

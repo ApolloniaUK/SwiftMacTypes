@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -13,11 +13,13 @@
 			buildPhases = (
 			);
 			dependencies = (
+				550A49AF2864F76000FBD6C8 /* PBXTargetDependency */,
+				550A49B12864F76000FBD6C8 /* PBXTargetDependency */,
+				550A49B32864F76000FBD6C8 /* PBXTargetDependency */,
 				5518F072251D5D9500528AED /* PBXTargetDependency */,
 				5527AC471FAE7D45009CC7FC /* PBXTargetDependency */,
 				5518A4201B03E931005AF928 /* PBXTargetDependency */,
 				5518A4221B03E931005AF928 /* PBXTargetDependency */,
-				5518A4241B03E931005AF928 /* PBXTargetDependency */,
 				5518A4261B03E931005AF928 /* PBXTargetDependency */,
 				5531C6C72242489C00AFB442 /* PBXTargetDependency */,
 			);
@@ -45,12 +47,13 @@
 		550404E721584E7D002D2702 /* SAAError.h in Headers */ = {isa = PBXBuildFile; fileRef = 550404E521584E7C002D2702 /* SAAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550404E821584E7D002D2702 /* SAAError.m in Sources */ = {isa = PBXBuildFile; fileRef = 550404E621584E7D002D2702 /* SAAError.m */; };
 		5505E0BB2408D62B002339C7 /* CTParagraphStyleAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505E0BA2408D62B002339C7 /* CTParagraphStyleAdditions.swift */; };
-		550B04A01A0D5932002BD56E /* COMUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B049F1A0D5932002BD56E /* COMUUIDs.swift */; };
 		550FBAC419A7ADC500EFBD3D /* SwiftAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 550FBAC319A7ADC500EFBD3D /* SwiftAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550FBACE19A7ADC500EFBD3D /* SwiftAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FBACD19A7ADC500EFBD3D /* SwiftAdditionsTests.swift */; };
-		550FBADA19A7AE6F00EFBD3D /* FoundationTypesAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FBAD919A7AE6F00EFBD3D /* FoundationTypesAdditions.swift */; };
 		5510696D24ADDDC9004C2486 /* SoundBankAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510696C24ADDDC9004C2486 /* SoundBankAdditions.swift */; };
 		5510696E24AFFF52004C2486 /* CoreAudioError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A5BE1E215EA2C000D31F29 /* CoreAudioError.swift */; };
+		5515E14428CFFF8100FE6EEA /* CTGlyphInfoAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515E14328CFFF8100FE6EEA /* CTGlyphInfoAdditions.swift */; };
+		5515E14628D07CFF00FE6EEA /* CTTypesetterAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515E14528D07CFF00FE6EEA /* CTTypesetterAdditions.swift */; };
+		5515E14C28D5BD9400FE6EEA /* PostCrypt.pfb in Resources */ = {isa = PBXBuildFile; fileRef = 5515E14828D5BD9300FE6EEA /* PostCrypt.pfb */; };
 		5518A4351B03F2CF005AF928 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
 		5518F063251D5D6600528AED /* SIMDAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5518F05A251D5D6600528AED /* SIMDAdditions.framework */; };
 		5518F068251D5D6600528AED /* SIMDAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518F067251D5D6600528AED /* SIMDAdditionsTests.swift */; };
@@ -58,7 +61,7 @@
 		5518F076251D5DB900528AED /* SIMD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518F075251D5DB900528AED /* SIMD2.swift */; };
 		5518F078251D5DC400528AED /* SIMD3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518F077251D5DC400528AED /* SIMD3.swift */; };
 		5518F07A251D5DCE00528AED /* SIMD4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518F079251D5DCE00528AED /* SIMD4.swift */; };
-		55251E2C24937417007BC863 /* CFBitVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55251E2B24937417007BC863 /* CFBitVector.swift */; };
+		5523499A2CAB8F03001238EE /* CFMessagePortAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552349992CAB8F03001238EE /* CFMessagePortAdditions.swift */; };
 		552627A11BDF52A4005AAF63 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552627A01BDF52A4005AAF63 /* Characters.swift */; };
 		5527AC1C1FAE7CB1009CC7FC /* CoreTextAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5527AC131FAE7CB1009CC7FC /* CoreTextAdditions.framework */; };
 		5527AC211FAE7CB1009CC7FC /* CoreTextAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527AC201FAE7CB1009CC7FC /* CoreTextAdditionsTests.swift */; };
@@ -75,42 +78,76 @@
 		5527AC431FAE7CE8009CC7FC /* CTFontAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527AC351FAE7CE8009CC7FC /* CTFontAdditions.swift */; };
 		5527AC441FAE7CE8009CC7FC /* CTFontCollectionAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527AC361FAE7CE8009CC7FC /* CTFontCollectionAdditions.swift */; };
 		5527AC451FAE7CE8009CC7FC /* CTFontManagerAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5527AC371FAE7CE8009CC7FC /* CTFontManagerAdditions.swift */; };
-		55403A061A745003007A488E /* ForceFeedbackAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55403A051A745003007A488E /* ForceFeedbackAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55403A0C1A745003007A488E /* ForceFeedbackAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55403A011A745003007A488E /* ForceFeedbackAdditions.framework */; };
-		55403A131A745003007A488E /* ForceFeedbackAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55403A121A745003007A488E /* ForceFeedbackAdditionsTests.swift */; };
-		55403A1A1A74502B007A488E /* ForceFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B2B64319F564FC00A716BC /* ForceFeedback.swift */; };
-		55403A1D1A745283007A488E /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
+		5535DD1326A4234900E766D5 /* CTAFontManagerErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 5535DD1226A4234900E766D5 /* CTAFontManagerErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		553D4EFB26E41AE60041DB2E /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ABE82E1A0815FA006B6AF9 /* CoreGraphics.swift */; };
+		5540780E26C5E7440054E0B6 /* AdditionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1A6AE1A07223B00C7A733 /* AdditionalAdditions.swift */; };
+		554536EB266222EC0097DD71 /* CTMisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554536EA266222EC0097DD71 /* CTMisc.swift */; };
+		554536ED266235F40097DD71 /* CTFramesetterAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554536EC266235F40097DD71 /* CTFramesetterAdditions.swift */; };
+		554FE7A228C4028900418258 /* CTAttributedStringAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7A128C4028900418258 /* CTAttributedStringAdditions.swift */; };
+		554FE7B028C74A3400418258 /* ColorSyncHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554FE7A828C74A3400418258 /* ColorSyncHelpers.framework */; };
+		554FE7B528C74A3400418258 /* ColorSyncHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7B428C74A3400418258 /* ColorSyncHelpersTests.swift */; };
+		554FE7B628C74A3400418258 /* ColorSyncHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 554FE7AA28C74A3400418258 /* ColorSyncHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		554FE7C728C74AC000418258 /* ColorSyncTransformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7BE28C74AC000418258 /* ColorSyncTransformSwift.swift */; };
+		554FE7C828C74AC000418258 /* ColorSyncProfileSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7BF28C74AC000418258 /* ColorSyncProfileSwift.swift */; };
+		554FE7C928C74AC000418258 /* ColorSyncCMMSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C028C74AC000418258 /* ColorSyncCMMSwift.swift */; platformFilters = (macos, ); };
+		554FE7CA28C74AC000418258 /* ColorSyncProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C128C74AC000418258 /* ColorSyncProfileClass.swift */; };
+		554FE7CB28C74AC000418258 /* CMM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C228C74AC000418258 /* CMM.swift */; platformFilters = (macos, ); };
+		554FE7CC28C74AC000418258 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C328C74AC000418258 /* Error.swift */; };
+		554FE7CD28C74AC000418258 /* ColorSyncDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C428C74AC000418258 /* ColorSyncDevice.swift */; platformFilters = (macos, ); };
+		554FE7CE28C74AC000418258 /* ColorSyncTransformClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE7C528C74AC000418258 /* ColorSyncTransformClass.swift */; };
+		555BB493288E458C00A255E0 /* CGColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BB491288E447A00A255E0 /* CGColorSpace.swift */; };
+		555C0269294296AA00587A40 /* FoundationAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */; };
+		555C026A294296B800587A40 /* FoundationAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */; };
 		555D85EA1D26F29E004EA8E7 /* CocoaComparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555D85E91D26F29E004EA8E7 /* CocoaComparable.swift */; };
+		5560389D26BF2CC800CD1984 /* FoundationAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */; };
+		556038A226BF2CC800CD1984 /* FoundationAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556038A126BF2CC800CD1984 /* FoundationAdditionsTests.swift */; };
+		556038A426BF2CC800CD1984 /* FoundationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5560389626BF2CC800CD1984 /* FoundationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		556038AB26BF2D1200CD1984 /* FoundationTypesAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FBAD919A7AE6F00EFBD3D /* FoundationTypesAdditions.swift */; };
+		556038AE26BF2D1200CD1984 /* CFBitVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55251E2B24937417007BC863 /* CFBitVector.swift */; };
+		556038AF26BF2D1200CD1984 /* Endianness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587E0BF1A0A115D00CA1400 /* Endianness.swift */; };
+		556038B026BF2D1200CD1984 /* CFBinaryHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D373E826B8949500BFBCB4 /* CFBinaryHeap.swift */; };
+		556038B126BF2D1200CD1984 /* CFTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554536E826621C420097DD71 /* CFTypeProtocol.swift */; };
+		556038B426BF2D3E00CD1984 /* FoundationAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */; };
 		5563E582239F3033007A1600 /* IOHIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563E581239F3033007A1600 /* IOHIDManager.swift */; };
 		5563E584239F453F007A1600 /* IOHIDDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563E583239F453F007A1600 /* IOHIDDevice.swift */; };
 		5563E586239F4C8F007A1600 /* IOHIDValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563E585239F4C8F007A1600 /* IOHIDValue.swift */; };
-		5568C1021C63F1840050E2BA /* AppleScriptFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5568C1011C63F1840050E2BA /* AppleScriptFoundation.swift */; };
+		5568C1021C63F1840050E2BA /* AppleScriptFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5568C1011C63F1840050E2BA /* AppleScriptFoundation.swift */; platformFilters = (macos, ); };
 		556B05AC216DE4CB0025EFC5 /* SAMacError.h in Headers */ = {isa = PBXBuildFile; fileRef = 556B05AA216DE4CB0025EFC5 /* SAMacError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		556B05AD216DE4CB0025EFC5 /* SAMacError.m in Sources */ = {isa = PBXBuildFile; fileRef = 556B05AB216DE4CB0025EFC5 /* SAMacError.m */; };
 		556B05AF216DEB750025EFC5 /* SAMacError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B05AE216DEB750025EFC5 /* SAMacError.swift */; };
 		55706D941A1EC2440000FD93 /* SwiftIOKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55706D931A1EC2440000FD93 /* SwiftIOKitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55706D9A1A1EC2440000FD93 /* SwiftIOKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55706D8F1A1EC2440000FD93 /* SwiftIOKitAdditions.framework */; };
 		55706DA11A1EC2450000FD93 /* SwiftIOKitAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55706DA01A1EC2450000FD93 /* SwiftIOKitAdditionsTests.swift */; };
-		55706DA91A1EC2880000FD93 /* IOCFPlugInClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55706DA81A1EC2880000FD93 /* IOCFPlugInClass.swift */; };
 		55706DAC1A1EC3BC0000FD93 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
 		55721B7C21599B7C00F048AA /* AUOutputBL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55721B7B21599B7C00F048AA /* AUOutputBL.swift */; };
 		55721B7E21599BDC00F048AA /* AudioFileFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55721B7D21599BDC00F048AA /* AudioFileFormats.swift */; };
 		5576C14C1F6AFA4400C8C01F /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
 		5577287819ABE259008328D0 /* MacTypesAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577287719ABE259008328D0 /* MacTypesAdditions.swift */; };
-		5587E0C01A0A115D00CA1400 /* Endianness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5587E0BF1A0A115D00CA1400 /* Endianness.swift */; };
+		557D49CC27CF76B0006C2C69 /* pwr mgt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D49CB27CF76B0006C2C69 /* pwr mgt.swift */; };
+		558D71CE26DF54E8002F5255 /* CTRunDelegateAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D71CD26DF54E8002F5255 /* CTRunDelegateAdditions.swift */; };
+		558D71D026DF5E43002F5255 /* CTAFontManagerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558D71CF26DF5E43002F5255 /* CTAFontManagerErrors.swift */; };
 		558DC059217D04840022E081 /* QuartzAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558DC050217D04830022E081 /* QuartzAdditions.framework */; };
 		558DC05E217D04840022E081 /* QuartzAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558DC05D217D04840022E081 /* QuartzAdditionsTests.swift */; };
 		558DC060217D04840022E081 /* QuartzAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 558DC052217D04840022E081 /* QuartzAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		558DC068217D04C90022E081 /* CATransform3DAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558DC067217D04C90022E081 /* CATransform3DAdditions.swift */; };
+		559E68D3273FC0DA0030C3DB /* UTTypeOSTypes.docc in Sources */ = {isa = PBXBuildFile; fileRef = 559E68D2273FC0DA0030C3DB /* UTTypeOSTypes.docc */; };
+		559E68D9273FC0DA0030C3DB /* UTTypeOSTypes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559E68CF273FC0D90030C3DB /* UTTypeOSTypes.framework */; };
+		559E68DE273FC0DA0030C3DB /* UTTypeOSTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E68DD273FC0DA0030C3DB /* UTTypeOSTypesTests.swift */; };
+		559E68DF273FC0DA0030C3DB /* UTTypeOSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 559E68D1273FC0D90030C3DB /* UTTypeOSTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		559E68E7273FC10E0030C3DB /* UTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E68E6273FC10E0030C3DB /* UTTypes.swift */; };
 		55A02E311C61F07B00F75116 /* AudioFileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A02E301C61F07B00F75116 /* AudioFileClass.swift */; };
 		55A02E331C61F09900F75116 /* ExtAudioFileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A02E321C61F09900F75116 /* ExtAudioFileClass.swift */; };
-		55ABE82F1A0815FA006B6AF9 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ABE82E1A0815FA006B6AF9 /* CoreGraphics.swift */; };
 		55B713131D0775EF00F2EA1F /* CharacterAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B713121D0775EF00F2EA1F /* CharacterAdditionsTests.swift */; };
+		55BE4B31270BC16600100A7D /* TISAdditions.docc in Sources */ = {isa = PBXBuildFile; fileRef = 55BE4B30270BC16600100A7D /* TISAdditions.docc */; };
+		55BE4B37270BC16600100A7D /* TISAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BE4B2D270BC16600100A7D /* TISAdditions.framework */; };
+		55BE4B3C270BC16600100A7D /* TISAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BE4B3B270BC16600100A7D /* TISAdditionsTests.swift */; };
+		55BE4B3D270BC16600100A7D /* TISAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55BE4B2F270BC16600100A7D /* TISAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55BE4B44270BC17A00100A7D /* TextInputSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BFC31265EF46A00554FAA /* TextInputSources.swift */; };
 		55C04E9320754E2B00ABFD58 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
 		55C04E952075591700ABFD58 /* MacAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C04E942075591700ABFD58 /* MacAdditionsTests.swift */; };
-		55C1A6AF1A07223B00C7A733 /* AdditionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C1A6AE1A07223B00C7A733 /* AdditionalAdditions.swift */; };
+		55D3D7EE2AE3AB26006F0E51 /* FoundationAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */; };
+		55D3D7EF2AE3AB26006F0E51 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */; };
 		55D8DD861A7EE48B0046C1F7 /* AppKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8DD851A7EE48B0046C1F7 /* AppKit.swift */; };
-		55DAF5931A337C91008281ED /* COMUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DAF5921A337C91008281ED /* COMUUIDs.swift */; };
 		55E11DE61AE7114000815555 /* SwiftAudioAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E11DE51AE7114000815555 /* SwiftAudioAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55E11DEC1AE7114000815555 /* SwiftAudioAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E11DE11AE7114000815555 /* SwiftAudioAdditions.framework */; };
 		55E11DF31AE7114000815555 /* SwiftAudioAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E11DF21AE7114000815555 /* SwiftAudioAdditionsTests.swift */; };
@@ -119,15 +156,36 @@
 		55E11DFC1AE711C600815555 /* AudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553C2B991A0C4B0500700F83 /* AudioUnit.swift */; };
 		55E18FC91A43AC2B00834004 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E18FC71A43AC2B00834004 /* CoreFoundation.framework */; };
 		55E18FCA1A43AC2B00834004 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E18FC81A43AC2B00834004 /* Foundation.framework */; };
+		55E5D0C4267801D0000355FE /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5D0C3267801D0000355FE /* misc.swift */; };
 		55E6D07B23A6983A009BF006 /* MacErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6D07A23A6983A009BF006 /* MacErrorTests.swift */; };
 		55E6D08D23A9988D009BF006 /* IOHIDElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6D08C23A9988D009BF006 /* IOHIDElement.swift */; };
 		55E6D08F23A9CC8B009BF006 /* IOHIDQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6D08E23A9CC8B009BF006 /* IOHIDQueue.swift */; };
 		55E6D09123A9D92A009BF006 /* IOHIDTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6D09023A9D92A009BF006 /* IOHIDTransaction.swift */; };
-		55FB67FE21062B1C00C1AF96 /* FFAErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FB67FD21062B1C00C1AF96 /* FFAErrors.m */; };
-		55FB680021062B3700C1AF96 /* FFAErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FB67FF21062B3700C1AF96 /* FFAErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55FEDB1A2D20B46D00C34474 /* KextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEDB192D20B46800C34474 /* KextManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		550A49AE2864F76000FBD6C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5560389326BF2CC800CD1984;
+			remoteInfo = FoundationAdditions;
+		};
+		550A49B02864F76000FBD6C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55BE4B2C270BC16600100A7D;
+			remoteInfo = TISAdditions;
+		};
+		550A49B22864F76000FBD6C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 559E68CE273FC0D90030C3DB;
+			remoteInfo = UTTypeOSTypes;
+		};
 		5518A41F1B03E931005AF928 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
@@ -141,13 +199,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 55706D8E1A1EC2440000FD93;
 			remoteInfo = SwiftIOKitAdditions;
-		};
-		5518A4231B03E931005AF928 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 55403A001A745003007A488E;
-			remoteInfo = ForceFeedbackAdditions;
 		};
 		5518A4251B03E931005AF928 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -219,13 +270,6 @@
 			remoteGlobalIDString = 5527AC121FAE7CB1009CC7FC;
 			remoteInfo = CoreTextAdditions;
 		};
-		5527AC4A1FAE8327009CC7FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 550FBABD19A7ADC500EFBD3D;
-			remoteInfo = SwiftAdditions;
-		};
 		5531C6C62242489C00AFB442 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
@@ -240,19 +284,33 @@
 			remoteGlobalIDString = 558DC04F217D04830022E081;
 			remoteInfo = QuartzAdditions;
 		};
-		55403A0D1A745003007A488E /* PBXContainerItemProxy */ = {
+		554FE7B128C74A3400418258 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55403A001A745003007A488E;
-			remoteInfo = ForceFeedbackAdditions;
+			remoteGlobalIDString = 554FE7A728C74A3400418258;
+			remoteInfo = ColorSyncHelpers;
 		};
-		55403A1B1A745065007A488E /* PBXContainerItemProxy */ = {
+		554FE7D128C74CA700418258 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 550FBABD19A7ADC500EFBD3D;
-			remoteInfo = SwiftAdditions;
+			remoteGlobalIDString = 5560389326BF2CC800CD1984;
+			remoteInfo = FoundationAdditions;
+		};
+		5560389E26BF2CC800CD1984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5560389326BF2CC800CD1984;
+			remoteInfo = FoundationAdditions;
+		};
+		556038B226BF2D2F00CD1984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5560389326BF2CC800CD1984;
+			remoteInfo = FoundationAdditions;
 		};
 		55706D9B1A1EC2440000FD93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -275,7 +333,35 @@
 			remoteGlobalIDString = 558DC04F217D04830022E081;
 			remoteInfo = QuartzAdditions;
 		};
+		559E68DA273FC0DA0030C3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 559E68CE273FC0D90030C3DB;
+			remoteInfo = UTTypeOSTypes;
+		};
 		55ACBFD91D5A617900E4F677 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 550FBABD19A7ADC500EFBD3D;
+			remoteInfo = SwiftAdditions;
+		};
+		55BE4B26270BBED000100A7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5560389326BF2CC800CD1984;
+			remoteInfo = FoundationAdditions;
+		};
+		55BE4B38270BC16600100A7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55BE4B2C270BC16600100A7D;
+			remoteInfo = TISAdditions;
+		};
+		55D3DCCF2BBA089600A48BDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550FBAB519A7ADC500EFBD3D /* Project object */;
 			proxyType = 1;
@@ -295,7 +381,6 @@
 		550404E521584E7C002D2702 /* SAAError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAAError.h; sourceTree = "<group>"; };
 		550404E621584E7D002D2702 /* SAAError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAAError.m; sourceTree = "<group>"; };
 		5505E0BA2408D62B002339C7 /* CTParagraphStyleAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTParagraphStyleAdditions.swift; sourceTree = "<group>"; };
-		550B049F1A0D5932002BD56E /* COMUUIDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COMUUIDs.swift; sourceTree = "<group>"; };
 		550FBABE19A7ADC500EFBD3D /* SwiftAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550FBAC219A7ADC500EFBD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550FBAC319A7ADC500EFBD3D /* SwiftAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftAdditions.h; sourceTree = "<group>"; };
@@ -304,6 +389,9 @@
 		550FBACD19A7ADC500EFBD3D /* SwiftAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAdditionsTests.swift; sourceTree = "<group>"; };
 		550FBAD919A7AE6F00EFBD3D /* FoundationTypesAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationTypesAdditions.swift; sourceTree = "<group>"; };
 		5510696C24ADDDC9004C2486 /* SoundBankAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBankAdditions.swift; sourceTree = "<group>"; };
+		5515E14328CFFF8100FE6EEA /* CTGlyphInfoAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTGlyphInfoAdditions.swift; sourceTree = "<group>"; };
+		5515E14528D07CFF00FE6EEA /* CTTypesetterAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTTypesetterAdditions.swift; sourceTree = "<group>"; };
+		5515E14828D5BD9300FE6EEA /* PostCrypt.pfb */ = {isa = PBXFileReference; lastKnownFileType = file; path = PostCrypt.pfb; sourceTree = "<group>"; };
 		5518F05A251D5D6600528AED /* SIMDAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIMDAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5518F05C251D5D6600528AED /* SIMDAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIMDAdditions.h; sourceTree = "<group>"; };
 		5518F05D251D5D6600528AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -313,6 +401,8 @@
 		5518F075251D5DB900528AED /* SIMD2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD2.swift; sourceTree = "<group>"; };
 		5518F077251D5DC400528AED /* SIMD3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD3.swift; sourceTree = "<group>"; };
 		5518F079251D5DCE00528AED /* SIMD4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD4.swift; sourceTree = "<group>"; };
+		551BFC31265EF46A00554FAA /* TextInputSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSources.swift; sourceTree = "<group>"; };
+		552349992CAB8F03001238EE /* CFMessagePortAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFMessagePortAdditions.swift; sourceTree = "<group>"; };
 		55251E2B24937417007BC863 /* CFBitVector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFBitVector.swift; sourceTree = "<group>"; };
 		552627A01BDF52A4005AAF63 /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		5527AC131FAE7CB1009CC7FC /* CoreTextAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreTextAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,21 +416,39 @@
 		5527AC2C1FAE7CE7009CC7FC /* CTRubyAnnotationAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTRubyAnnotationAdditions.swift; sourceTree = "<group>"; };
 		5527AC2E1FAE7CE7009CC7FC /* CTStringAttributesAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTStringAttributesAdditions.swift; sourceTree = "<group>"; };
 		5527AC301FAE7CE7009CC7FC /* CTFrameAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFrameAdditions.swift; sourceTree = "<group>"; };
-		5527AC311FAE7CE7009CC7FC /* CTAdditionsSwiftHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAdditionsSwiftHelpers.m; sourceTree = "<group>"; };
-		5527AC321FAE7CE8009CC7FC /* CTAdditionsSwiftHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAdditionsSwiftHelpers.h; sourceTree = "<group>"; };
+		5527AC311FAE7CE7009CC7FC /* CTAdditionsSwiftHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTAdditionsSwiftHelpers.m; path = ../CTAdditionsSwiftHelpers/CTAdditionsSwiftHelpers.m; sourceTree = "<group>"; };
+		5527AC321FAE7CE8009CC7FC /* CTAdditionsSwiftHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTAdditionsSwiftHelpers.h; path = ../CTAdditionsSwiftHelpers/include/CTAdditionsSwiftHelpers.h; sourceTree = "<group>"; };
 		5527AC331FAE7CE8009CC7FC /* CTLineAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTLineAdditions.swift; sourceTree = "<group>"; };
 		5527AC341FAE7CE8009CC7FC /* CTRunAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTRunAdditions.swift; sourceTree = "<group>"; };
 		5527AC351FAE7CE8009CC7FC /* CTFontAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFontAdditions.swift; sourceTree = "<group>"; };
 		5527AC361FAE7CE8009CC7FC /* CTFontCollectionAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFontCollectionAdditions.swift; sourceTree = "<group>"; };
 		5527AC371FAE7CE8009CC7FC /* CTFontManagerAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFontManagerAdditions.swift; sourceTree = "<group>"; };
+		5535DD1226A4234900E766D5 /* CTAFontManagerErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAFontManagerErrors.h; sourceTree = "<group>"; };
 		553C2B991A0C4B0500700F83 /* AudioUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUnit.swift; sourceTree = "<group>"; };
-		55403A011A745003007A488E /* ForceFeedbackAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ForceFeedbackAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55403A041A745003007A488E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55403A051A745003007A488E /* ForceFeedbackAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForceFeedbackAdditions.h; sourceTree = "<group>"; };
-		55403A0B1A745003007A488E /* ForceFeedbackAdditionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForceFeedbackAdditionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55403A111A745003007A488E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55403A121A745003007A488E /* ForceFeedbackAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceFeedbackAdditionsTests.swift; sourceTree = "<group>"; };
+		554536E826621C420097DD71 /* CFTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFTypeProtocol.swift; sourceTree = "<group>"; };
+		554536EA266222EC0097DD71 /* CTMisc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTMisc.swift; sourceTree = "<group>"; };
+		554536EC266235F40097DD71 /* CTFramesetterAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTFramesetterAdditions.swift; sourceTree = "<group>"; };
+		554FE7A128C4028900418258 /* CTAttributedStringAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAttributedStringAdditions.swift; sourceTree = "<group>"; };
+		554FE7A828C74A3400418258 /* ColorSyncHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSyncHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		554FE7AA28C74A3400418258 /* ColorSyncHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorSyncHelpers.h; sourceTree = "<group>"; };
+		554FE7AF28C74A3400418258 /* ColorSyncHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSyncHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		554FE7B428C74A3400418258 /* ColorSyncHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSyncHelpersTests.swift; sourceTree = "<group>"; };
+		554FE7BE28C74AC000418258 /* ColorSyncTransformSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncTransformSwift.swift; sourceTree = "<group>"; };
+		554FE7BF28C74AC000418258 /* ColorSyncProfileSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncProfileSwift.swift; sourceTree = "<group>"; };
+		554FE7C028C74AC000418258 /* ColorSyncCMMSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncCMMSwift.swift; sourceTree = "<group>"; };
+		554FE7C128C74AC000418258 /* ColorSyncProfileClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncProfileClass.swift; sourceTree = "<group>"; };
+		554FE7C228C74AC000418258 /* CMM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMM.swift; sourceTree = "<group>"; };
+		554FE7C328C74AC000418258 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		554FE7C428C74AC000418258 /* ColorSyncDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncDevice.swift; sourceTree = "<group>"; };
+		554FE7C528C74AC000418258 /* ColorSyncTransformClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSyncTransformClass.swift; sourceTree = "<group>"; };
+		555BB491288E447A00A255E0 /* CGColorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorSpace.swift; sourceTree = "<group>"; };
 		555D85E91D26F29E004EA8E7 /* CocoaComparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaComparable.swift; sourceTree = "<group>"; };
+		5560389426BF2CC800CD1984 /* FoundationAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoundationAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5560389626BF2CC800CD1984 /* FoundationAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationAdditions.h; sourceTree = "<group>"; };
+		5560389726BF2CC800CD1984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5560389C26BF2CC800CD1984 /* FoundationAdditionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationAdditionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		556038A126BF2CC800CD1984 /* FoundationAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationAdditionsTests.swift; sourceTree = "<group>"; };
+		556038A326BF2CC800CD1984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5563E581239F3033007A1600 /* IOHIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOHIDManager.swift; sourceTree = "<group>"; };
 		5563E583239F453F007A1600 /* IOHIDDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOHIDDevice.swift; sourceTree = "<group>"; };
 		5563E585239F4C8F007A1600 /* IOHIDValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOHIDValue.swift; sourceTree = "<group>"; };
@@ -355,11 +463,14 @@
 		55706D991A1EC2440000FD93 /* SwiftIOKitAdditionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftIOKitAdditionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55706D9F1A1EC2450000FD93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55706DA01A1EC2450000FD93 /* SwiftIOKitAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftIOKitAdditionsTests.swift; sourceTree = "<group>"; };
-		55706DA81A1EC2880000FD93 /* IOCFPlugInClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOCFPlugInClass.swift; sourceTree = "<group>"; };
 		55721B7B21599B7C00F048AA /* AUOutputBL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUOutputBL.swift; sourceTree = "<group>"; };
 		55721B7D21599BDC00F048AA /* AudioFileFormats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFileFormats.swift; sourceTree = "<group>"; };
 		5577287719ABE259008328D0 /* MacTypesAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacTypesAdditions.swift; sourceTree = "<group>"; };
+		557D49CB27CF76B0006C2C69 /* pwr mgt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "pwr mgt.swift"; sourceTree = "<group>"; };
+		557EA35D25861EE8005AEADC /* ForceFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForceFeedback.framework; path = System/Library/Frameworks/ForceFeedback.framework; sourceTree = SDKROOT; };
 		5587E0BF1A0A115D00CA1400 /* Endianness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endianness.swift; sourceTree = "<group>"; };
+		558D71CD26DF54E8002F5255 /* CTRunDelegateAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTRunDelegateAdditions.swift; sourceTree = "<group>"; };
+		558D71CF26DF5E43002F5255 /* CTAFontManagerErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTAFontManagerErrors.swift; sourceTree = "<group>"; };
 		558DC050217D04830022E081 /* QuartzAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuartzAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		558DC052217D04840022E081 /* QuartzAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuartzAdditions.h; sourceTree = "<group>"; };
 		558DC053217D04840022E081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -367,16 +478,26 @@
 		558DC05D217D04840022E081 /* QuartzAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuartzAdditionsTests.swift; sourceTree = "<group>"; };
 		558DC05F217D04840022E081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558DC067217D04C90022E081 /* CATransform3DAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransform3DAdditions.swift; sourceTree = "<group>"; };
+		559E68CF273FC0D90030C3DB /* UTTypeOSTypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UTTypeOSTypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		559E68D1273FC0D90030C3DB /* UTTypeOSTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UTTypeOSTypes.h; sourceTree = "<group>"; };
+		559E68D2273FC0DA0030C3DB /* UTTypeOSTypes.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = UTTypeOSTypes.docc; sourceTree = "<group>"; };
+		559E68D8273FC0DA0030C3DB /* UTTypeOSTypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UTTypeOSTypesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		559E68DD273FC0DA0030C3DB /* UTTypeOSTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeOSTypesTests.swift; sourceTree = "<group>"; };
+		559E68E6273FC10E0030C3DB /* UTTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypes.swift; sourceTree = "<group>"; };
 		55A02E301C61F07B00F75116 /* AudioFileClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFileClass.swift; sourceTree = "<group>"; };
 		55A02E321C61F09900F75116 /* ExtAudioFileClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtAudioFileClass.swift; sourceTree = "<group>"; };
 		55A5BE1E215EA2C000D31F29 /* CoreAudioError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAudioError.swift; sourceTree = "<group>"; };
 		55ABE82E1A0815FA006B6AF9 /* CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
-		55B2B64319F564FC00A716BC /* ForceFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceFeedback.swift; sourceTree = "<group>"; };
 		55B713121D0775EF00F2EA1F /* CharacterAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAdditionsTests.swift; sourceTree = "<group>"; };
+		55BE4B2D270BC16600100A7D /* TISAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TISAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BE4B2F270BC16600100A7D /* TISAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TISAdditions.h; sourceTree = "<group>"; };
+		55BE4B30270BC16600100A7D /* TISAdditions.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TISAdditions.docc; sourceTree = "<group>"; };
+		55BE4B36270BC16600100A7D /* TISAdditionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TISAdditionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BE4B3B270BC16600100A7D /* TISAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TISAdditionsTests.swift; sourceTree = "<group>"; };
 		55C04E942075591700ABFD58 /* MacAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAdditionsTests.swift; sourceTree = "<group>"; };
 		55C1A6AE1A07223B00C7A733 /* AdditionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalAdditions.swift; sourceTree = "<group>"; };
+		55D373E826B8949500BFBCB4 /* CFBinaryHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFBinaryHeap.swift; sourceTree = "<group>"; };
 		55D8DD851A7EE48B0046C1F7 /* AppKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKit.swift; sourceTree = "<group>"; };
-		55DAF5921A337C91008281ED /* COMUUIDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COMUUIDs.swift; sourceTree = "<group>"; };
 		55E11DE11AE7114000815555 /* SwiftAudioAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftAudioAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E11DE41AE7114000815555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E11DE51AE7114000815555 /* SwiftAudioAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftAudioAdditions.h; sourceTree = "<group>"; };
@@ -386,12 +507,12 @@
 		55E18FC71A43AC2B00834004 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		55E18FC81A43AC2B00834004 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		55E56C131AE2C716006B7276 /* ExtAudioFileExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtAudioFileExt.swift; sourceTree = "<group>"; };
+		55E5D0C3267801D0000355FE /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
 		55E6D07A23A6983A009BF006 /* MacErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacErrorTests.swift; sourceTree = "<group>"; };
 		55E6D08C23A9988D009BF006 /* IOHIDElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOHIDElement.swift; sourceTree = "<group>"; };
 		55E6D08E23A9CC8B009BF006 /* IOHIDQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOHIDQueue.swift; sourceTree = "<group>"; };
 		55E6D09023A9D92A009BF006 /* IOHIDTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOHIDTransaction.swift; sourceTree = "<group>"; };
-		55FB67FD21062B1C00C1AF96 /* FFAErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAErrors.m; sourceTree = "<group>"; };
-		55FB67FF21062B3700C1AF96 /* FFAErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAErrors.h; sourceTree = "<group>"; };
+		55FEDB192D20B46800C34474 /* KextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KextManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +520,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556038B426BF2D3E00CD1984 /* FoundationAdditions.framework in Frameworks */,
 				55E18FC91A43AC2B00834004 /* CoreFoundation.framework in Frameworks */,
 				55E18FCA1A43AC2B00834004 /* Foundation.framework in Frameworks */,
 			);
@@ -431,6 +553,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555C026A294296B800587A40 /* FoundationAdditions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,19 +565,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		554039FD1A745003007A488E /* Frameworks */ = {
+		554FE7A528C74A3400418258 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55403A1D1A745283007A488E /* SwiftAdditions.framework in Frameworks */,
+				555C0269294296AA00587A40 /* FoundationAdditions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55403A081A745003007A488E /* Frameworks */ = {
+		554FE7AC28C74A3400418258 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55403A0C1A745003007A488E /* ForceFeedbackAdditions.framework in Frameworks */,
+				554FE7B028C74A3400418258 /* ColorSyncHelpers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389126BF2CC800CD1984 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389926BF2CC800CD1984 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5560389D26BF2CC800CD1984 /* FoundationAdditions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +628,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		559E68CC273FC0D90030C3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559E68D5273FC0DA0030C3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559E68D9273FC0DA0030C3DB /* UTTypeOSTypes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B2A270BC16600100A7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D3D7EE2AE3AB26006F0E51 /* FoundationAdditions.framework in Frameworks */,
+				55D3D7EF2AE3AB26006F0E51 /* SwiftAdditions.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B33270BC16600100A7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BE4B37270BC16600100A7D /* TISAdditions.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55E11DDD1AE7114000815555 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,8 +686,6 @@
 				550FBACA19A7ADC500EFBD3D /* SwiftAdditionsTests */,
 				55706D901A1EC2440000FD93 /* SwiftIOKitAdditions */,
 				55706D9D1A1EC2450000FD93 /* SwiftIOKitAdditionsTests */,
-				55403A021A745003007A488E /* ForceFeedbackAdditions */,
-				55403A0F1A745003007A488E /* ForceFeedbackAdditionsTests */,
 				55E11DE21AE7114000815555 /* SwiftAudioAdditions */,
 				55E11DEF1AE7114000815555 /* SwiftAudioAdditionsTests */,
 				5527AC141FAE7CB1009CC7FC /* CoreTextAdditions */,
@@ -526,6 +694,14 @@
 				558DC05C217D04840022E081 /* QuartzAdditionsTests */,
 				5518F05B251D5D6600528AED /* SIMDAdditions */,
 				5518F066251D5D6600528AED /* SIMDAdditionsTests */,
+				5560389526BF2CC800CD1984 /* FoundationAdditions */,
+				556038A026BF2CC800CD1984 /* FoundationAdditionsTests */,
+				55BE4B2E270BC16600100A7D /* TISAdditions */,
+				55BE4B3A270BC16600100A7D /* TISAdditionsTests */,
+				559E68D0273FC0D90030C3DB /* UTTypeOSTypes */,
+				559E68DC273FC0DA0030C3DB /* UTTypeOSTypesTests */,
+				554FE7A928C74A3400418258 /* ColorSyncHelpers */,
+				554FE7B328C74A3400418258 /* ColorSyncHelpersTests */,
 				55E18FCB1A43AC3300834004 /* Frameworks */,
 				550FBABF19A7ADC500EFBD3D /* Products */,
 			);
@@ -538,8 +714,6 @@
 				550FBAC919A7ADC500EFBD3D /* SwiftAdditionsTests.xctest */,
 				55706D8F1A1EC2440000FD93 /* SwiftIOKitAdditions.framework */,
 				55706D991A1EC2440000FD93 /* SwiftIOKitAdditionsTests.xctest */,
-				55403A011A745003007A488E /* ForceFeedbackAdditions.framework */,
-				55403A0B1A745003007A488E /* ForceFeedbackAdditionsTests.xctest */,
 				55E11DE11AE7114000815555 /* SwiftAudioAdditions.framework */,
 				55E11DEB1AE7114000815555 /* SwiftAudioAdditionsTests.xctest */,
 				5527AC131FAE7CB1009CC7FC /* CoreTextAdditions.framework */,
@@ -548,6 +722,14 @@
 				558DC058217D04840022E081 /* QuartzAdditionsTests.xctest */,
 				5518F05A251D5D6600528AED /* SIMDAdditions.framework */,
 				5518F062251D5D6600528AED /* SIMDAdditionsTests.xctest */,
+				5560389426BF2CC800CD1984 /* FoundationAdditions.framework */,
+				5560389C26BF2CC800CD1984 /* FoundationAdditionsTests.xctest */,
+				55BE4B2D270BC16600100A7D /* TISAdditions.framework */,
+				55BE4B36270BC16600100A7D /* TISAdditionsTests.xctest */,
+				559E68CF273FC0D90030C3DB /* UTTypeOSTypes.framework */,
+				559E68D8273FC0DA0030C3DB /* UTTypeOSTypesTests.xctest */,
+				554FE7A828C74A3400418258 /* ColorSyncHelpers.framework */,
+				554FE7AF28C74A3400418258 /* ColorSyncHelpersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -555,21 +737,16 @@
 		550FBAC019A7ADC500EFBD3D /* SwiftAdditions */ = {
 			isa = PBXGroup;
 			children = (
-				55C1A6AE1A07223B00C7A733 /* AdditionalAdditions.swift */,
 				55D8DD851A7EE48B0046C1F7 /* AppKit.swift */,
 				552627A01BDF52A4005AAF63 /* Characters.swift */,
-				555D85E91D26F29E004EA8E7 /* CocoaComparable.swift */,
-				550B049F1A0D5932002BD56E /* COMUUIDs.swift */,
-				55ABE82E1A0815FA006B6AF9 /* CoreGraphics.swift */,
-				5587E0BF1A0A115D00CA1400 /* Endianness.swift */,
-				550FBAD919A7AE6F00EFBD3D /* FoundationTypesAdditions.swift */,
 				5577287719ABE259008328D0 /* MacTypesAdditions.swift */,
+				55ABE82E1A0815FA006B6AF9 /* CoreGraphics.swift */,
+				555BB491288E447A00A255E0 /* CGColorSpace.swift */,
 				5568C1011C63F1840050E2BA /* AppleScriptFoundation.swift */,
 				550FBAC319A7ADC500EFBD3D /* SwiftAdditions.h */,
 				556B05AA216DE4CB0025EFC5 /* SAMacError.h */,
 				556B05AB216DE4CB0025EFC5 /* SAMacError.m */,
 				556B05AE216DEB750025EFC5 /* SAMacError.swift */,
-				55251E2B24937417007BC863 /* CFBitVector.swift */,
 				550FBAC119A7ADC500EFBD3D /* Supporting Files */,
 			);
 			path = SwiftAdditions;
@@ -628,6 +805,8 @@
 			isa = PBXGroup;
 			children = (
 				5527AC151FAE7CB1009CC7FC /* CoreTextAdditions.h */,
+				5535DD1226A4234900E766D5 /* CTAFontManagerErrors.h */,
+				558D71CF26DF5E43002F5255 /* CTAFontManagerErrors.swift */,
 				5527AC321FAE7CE8009CC7FC /* CTAdditionsSwiftHelpers.h */,
 				5527AC311FAE7CE7009CC7FC /* CTAdditionsSwiftHelpers.m */,
 				5527AC351FAE7CE8009CC7FC /* CTFontAdditions.swift */,
@@ -635,12 +814,18 @@
 				5527AC2B1FAE7CE7009CC7FC /* CTFontDescriptorAdditions.swift */,
 				5527AC371FAE7CE8009CC7FC /* CTFontManagerAdditions.swift */,
 				5527AC301FAE7CE7009CC7FC /* CTFrameAdditions.swift */,
+				554536EC266235F40097DD71 /* CTFramesetterAdditions.swift */,
+				5515E14328CFFF8100FE6EEA /* CTGlyphInfoAdditions.swift */,
+				5515E14528D07CFF00FE6EEA /* CTTypesetterAdditions.swift */,
 				5527AC331FAE7CE8009CC7FC /* CTLineAdditions.swift */,
 				5505E0BA2408D62B002339C7 /* CTParagraphStyleAdditions.swift */,
 				5527AC2C1FAE7CE7009CC7FC /* CTRubyAnnotationAdditions.swift */,
 				5527AC341FAE7CE8009CC7FC /* CTRunAdditions.swift */,
+				558D71CD26DF54E8002F5255 /* CTRunDelegateAdditions.swift */,
 				5527AC2E1FAE7CE7009CC7FC /* CTStringAttributesAdditions.swift */,
+				554FE7A128C4028900418258 /* CTAttributedStringAdditions.swift */,
 				5527AC2A1FAE7CE7009CC7FC /* CTTextTabAdditions.swift */,
+				554536EA266222EC0097DD71 /* CTMisc.swift */,
 				5527AC161FAE7CB1009CC7FC /* Info.plist */,
 			);
 			path = CoreTextAdditions;
@@ -649,55 +834,85 @@
 		5527AC1F1FAE7CB1009CC7FC /* CoreTextAdditionsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5515E14828D5BD9300FE6EEA /* PostCrypt.pfb */,
 				5527AC201FAE7CB1009CC7FC /* CoreTextAdditionsTests.swift */,
 				5527AC221FAE7CB1009CC7FC /* Info.plist */,
 			);
 			path = CoreTextAdditionsTests;
 			sourceTree = "<group>";
 		};
-		55403A021A745003007A488E /* ForceFeedbackAdditions */ = {
+		554FE7A928C74A3400418258 /* ColorSyncHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				55B2B64319F564FC00A716BC /* ForceFeedback.swift */,
-				55403A051A745003007A488E /* ForceFeedbackAdditions.h */,
-				55FB67FF21062B3700C1AF96 /* FFAErrors.h */,
-				55FB67FD21062B1C00C1AF96 /* FFAErrors.m */,
-				55403A031A745003007A488E /* Supporting Files */,
+				554FE7AA28C74A3400418258 /* ColorSyncHelpers.h */,
+				554FE7D028C74AD000418258 /* Swift Wrappers */,
+				554FE7BD28C74AC000418258 /* Swift Extensions */,
 			);
-			path = ForceFeedbackAdditions;
+			path = ColorSyncHelpers;
 			sourceTree = "<group>";
 		};
-		55403A031A745003007A488E /* Supporting Files */ = {
+		554FE7B328C74A3400418258 /* ColorSyncHelpersTests */ = {
 			isa = PBXGroup;
 			children = (
-				55403A041A745003007A488E /* Info.plist */,
+				554FE7B428C74A3400418258 /* ColorSyncHelpersTests.swift */,
 			);
-			name = "Supporting Files";
+			path = ColorSyncHelpersTests;
 			sourceTree = "<group>";
 		};
-		55403A0F1A745003007A488E /* ForceFeedbackAdditionsTests */ = {
+		554FE7BD28C74AC000418258 /* Swift Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				55403A121A745003007A488E /* ForceFeedbackAdditionsTests.swift */,
-				55403A101A745003007A488E /* Supporting Files */,
+				554FE7BE28C74AC000418258 /* ColorSyncTransformSwift.swift */,
+				554FE7BF28C74AC000418258 /* ColorSyncProfileSwift.swift */,
+				554FE7C028C74AC000418258 /* ColorSyncCMMSwift.swift */,
 			);
-			path = ForceFeedbackAdditionsTests;
+			path = "Swift Extensions";
 			sourceTree = "<group>";
 		};
-		55403A101A745003007A488E /* Supporting Files */ = {
+		554FE7D028C74AD000418258 /* Swift Wrappers */ = {
 			isa = PBXGroup;
 			children = (
-				55403A111A745003007A488E /* Info.plist */,
+				554FE7C228C74AC000418258 /* CMM.swift */,
+				554FE7C428C74AC000418258 /* ColorSyncDevice.swift */,
+				554FE7C128C74AC000418258 /* ColorSyncProfileClass.swift */,
+				554FE7C528C74AC000418258 /* ColorSyncTransformClass.swift */,
+				554FE7C328C74AC000418258 /* Error.swift */,
 			);
-			name = "Supporting Files";
+			name = "Swift Wrappers";
+			sourceTree = "<group>";
+		};
+		5560389526BF2CC800CD1984 /* FoundationAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				55C1A6AE1A07223B00C7A733 /* AdditionalAdditions.swift */,
+				555D85E91D26F29E004EA8E7 /* CocoaComparable.swift */,
+				5587E0BF1A0A115D00CA1400 /* Endianness.swift */,
+				550FBAD919A7AE6F00EFBD3D /* FoundationTypesAdditions.swift */,
+				55251E2B24937417007BC863 /* CFBitVector.swift */,
+				55D373E826B8949500BFBCB4 /* CFBinaryHeap.swift */,
+				554536E826621C420097DD71 /* CFTypeProtocol.swift */,
+				552349992CAB8F03001238EE /* CFMessagePortAdditions.swift */,
+				5560389626BF2CC800CD1984 /* FoundationAdditions.h */,
+				5560389726BF2CC800CD1984 /* Info.plist */,
+			);
+			path = FoundationAdditions;
+			sourceTree = "<group>";
+		};
+		556038A026BF2CC800CD1984 /* FoundationAdditionsTests */ = {
+			isa = PBXGroup;
+			children = (
+				556038A126BF2CC800CD1984 /* FoundationAdditionsTests.swift */,
+				556038A326BF2CC800CD1984 /* Info.plist */,
+			);
+			path = FoundationAdditionsTests;
 			sourceTree = "<group>";
 		};
 		55706D901A1EC2440000FD93 /* SwiftIOKitAdditions */ = {
 			isa = PBXGroup;
 			children = (
+				55FEDB192D20B46800C34474 /* KextManager.swift */,
+				557D49CA27CF764A006C2C69 /* Power Management */,
 				559398E623A61C270052B4E9 /* hid */,
-				55706DA81A1EC2880000FD93 /* IOCFPlugInClass.swift */,
-				55DAF5921A337C91008281ED /* COMUUIDs.swift */,
 				55706D931A1EC2440000FD93 /* SwiftIOKitAdditions.h */,
 				55706D911A1EC2440000FD93 /* Supporting Files */,
 			);
@@ -729,6 +944,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		557D49CA27CF764A006C2C69 /* Power Management */ = {
+			isa = PBXGroup;
+			children = (
+				557D49CB27CF76B0006C2C69 /* pwr mgt.swift */,
+			);
+			path = "Power Management";
+			sourceTree = "<group>";
+		};
 		558DC051217D04840022E081 /* QuartzAdditions */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,8 +980,45 @@
 				55E6D08E23A9CC8B009BF006 /* IOHIDQueue.swift */,
 				55E6D09023A9D92A009BF006 /* IOHIDTransaction.swift */,
 				5563E585239F4C8F007A1600 /* IOHIDValue.swift */,
+				55E5D0C3267801D0000355FE /* misc.swift */,
 			);
 			path = hid;
+			sourceTree = "<group>";
+		};
+		559E68D0273FC0D90030C3DB /* UTTypeOSTypes */ = {
+			isa = PBXGroup;
+			children = (
+				559E68D1273FC0D90030C3DB /* UTTypeOSTypes.h */,
+				559E68D2273FC0DA0030C3DB /* UTTypeOSTypes.docc */,
+				559E68E6273FC10E0030C3DB /* UTTypes.swift */,
+			);
+			path = UTTypeOSTypes;
+			sourceTree = "<group>";
+		};
+		559E68DC273FC0DA0030C3DB /* UTTypeOSTypesTests */ = {
+			isa = PBXGroup;
+			children = (
+				559E68DD273FC0DA0030C3DB /* UTTypeOSTypesTests.swift */,
+			);
+			path = UTTypeOSTypesTests;
+			sourceTree = "<group>";
+		};
+		55BE4B2E270BC16600100A7D /* TISAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				551BFC31265EF46A00554FAA /* TextInputSources.swift */,
+				55BE4B2F270BC16600100A7D /* TISAdditions.h */,
+				55BE4B30270BC16600100A7D /* TISAdditions.docc */,
+			);
+			path = TISAdditions;
+			sourceTree = "<group>";
+		};
+		55BE4B3A270BC16600100A7D /* TISAdditionsTests */ = {
+			isa = PBXGroup;
+			children = (
+				55BE4B3B270BC16600100A7D /* TISAdditionsTests.swift */,
+			);
+			path = TISAdditionsTests;
 			sourceTree = "<group>";
 		};
 		55E11DE21AE7114000815555 /* SwiftAudioAdditions */ = {
@@ -809,6 +1069,7 @@
 		55E18FCB1A43AC3300834004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				557EA35D25861EE8005AEADC /* ForceFeedback.framework */,
 				55E18FC81A43AC2B00834004 /* Foundation.framework */,
 				55E18FC71A43AC2B00834004 /* CoreFoundation.framework */,
 			);
@@ -839,17 +1100,25 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5535DD1326A4234900E766D5 /* CTAFontManagerErrors.h in Headers */,
 				5527AC401FAE7CE8009CC7FC /* CTAdditionsSwiftHelpers.h in Headers */,
 				5527AC231FAE7CB1009CC7FC /* CoreTextAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		554039FE1A745003007A488E /* Headers */ = {
+		554FE7A328C74A3400418258 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55403A061A745003007A488E /* ForceFeedbackAdditions.h in Headers */,
-				55FB680021062B3700C1AF96 /* FFAErrors.h in Headers */,
+				554FE7B628C74A3400418258 /* ColorSyncHelpers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560388F26BF2CC800CD1984 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556038A426BF2CC800CD1984 /* FoundationAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +1135,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				558DC060217D04840022E081 /* QuartzAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559E68CA273FC0D90030C3DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559E68DF273FC0DA0030C3DB /* UTTypeOSTypes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B28270BC16600100A7D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BE4B3D270BC16600100A7D /* TISAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +1178,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				556038B326BF2D2F00CD1984 /* PBXTargetDependency */,
 			);
 			name = SwiftAdditions;
 			productName = SwiftAdditions;
@@ -965,7 +1251,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				5527AC4B1FAE8327009CC7FC /* PBXTargetDependency */,
+				55D3DCD02BBA089600A48BDE /* PBXTargetDependency */,
+				55BE4B27270BBED000100A7D /* PBXTargetDependency */,
 			);
 			name = CoreTextAdditions;
 			productName = CoreTextAdditions;
@@ -990,41 +1277,77 @@
 			productReference = 5527AC1B1FAE7CB1009CC7FC /* CoreTextAdditionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		55403A001A745003007A488E /* ForceFeedbackAdditions */ = {
+		554FE7A728C74A3400418258 /* ColorSyncHelpers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55403A181A745003007A488E /* Build configuration list for PBXNativeTarget "ForceFeedbackAdditions" */;
+			buildConfigurationList = 554FE7B728C74A3400418258 /* Build configuration list for PBXNativeTarget "ColorSyncHelpers" */;
 			buildPhases = (
-				554039FE1A745003007A488E /* Headers */,
-				554039FC1A745003007A488E /* Sources */,
-				554039FD1A745003007A488E /* Frameworks */,
-				554039FF1A745003007A488E /* Resources */,
+				554FE7A328C74A3400418258 /* Headers */,
+				554FE7A428C74A3400418258 /* Sources */,
+				554FE7A528C74A3400418258 /* Frameworks */,
+				554FE7A628C74A3400418258 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55403A1C1A745065007A488E /* PBXTargetDependency */,
+				554FE7D228C74CA700418258 /* PBXTargetDependency */,
 			);
-			name = ForceFeedbackAdditions;
-			productName = ForceFeedbackAdditions;
-			productReference = 55403A011A745003007A488E /* ForceFeedbackAdditions.framework */;
+			name = ColorSyncHelpers;
+			productName = ColorSyncHelpers;
+			productReference = 554FE7A828C74A3400418258 /* ColorSyncHelpers.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55403A0A1A745003007A488E /* ForceFeedbackAdditionsTests */ = {
+		554FE7AE28C74A3400418258 /* ColorSyncHelpersTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55403A191A745003007A488E /* Build configuration list for PBXNativeTarget "ForceFeedbackAdditionsTests" */;
+			buildConfigurationList = 554FE7BA28C74A3400418258 /* Build configuration list for PBXNativeTarget "ColorSyncHelpersTests" */;
 			buildPhases = (
-				55403A071A745003007A488E /* Sources */,
-				55403A081A745003007A488E /* Frameworks */,
-				55403A091A745003007A488E /* Resources */,
+				554FE7AB28C74A3400418258 /* Sources */,
+				554FE7AC28C74A3400418258 /* Frameworks */,
+				554FE7AD28C74A3400418258 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55403A0E1A745003007A488E /* PBXTargetDependency */,
+				554FE7B228C74A3400418258 /* PBXTargetDependency */,
 			);
-			name = ForceFeedbackAdditionsTests;
-			productName = ForceFeedbackAdditionsTests;
-			productReference = 55403A0B1A745003007A488E /* ForceFeedbackAdditionsTests.xctest */;
+			name = ColorSyncHelpersTests;
+			productName = ColorSyncHelpersTests;
+			productReference = 554FE7AF28C74A3400418258 /* ColorSyncHelpersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5560389326BF2CC800CD1984 /* FoundationAdditions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 556038A926BF2CC800CD1984 /* Build configuration list for PBXNativeTarget "FoundationAdditions" */;
+			buildPhases = (
+				5560388F26BF2CC800CD1984 /* Headers */,
+				5560389026BF2CC800CD1984 /* Sources */,
+				5560389126BF2CC800CD1984 /* Frameworks */,
+				5560389226BF2CC800CD1984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoundationAdditions;
+			productName = FoundationAdditions;
+			productReference = 5560389426BF2CC800CD1984 /* FoundationAdditions.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5560389B26BF2CC800CD1984 /* FoundationAdditionsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 556038AA26BF2CC800CD1984 /* Build configuration list for PBXNativeTarget "FoundationAdditionsTests" */;
+			buildPhases = (
+				5560389826BF2CC800CD1984 /* Sources */,
+				5560389926BF2CC800CD1984 /* Frameworks */,
+				5560389A26BF2CC800CD1984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5560389F26BF2CC800CD1984 /* PBXTargetDependency */,
+			);
+			name = FoundationAdditionsTests;
+			productName = FoundationAdditionsTests;
+			productReference = 5560389C26BF2CC800CD1984 /* FoundationAdditionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		55706D8E1A1EC2440000FD93 /* SwiftIOKitAdditions */ = {
@@ -1100,6 +1423,78 @@
 			productReference = 558DC058217D04840022E081 /* QuartzAdditionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		559E68CE273FC0D90030C3DB /* UTTypeOSTypes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 559E68E4273FC0DA0030C3DB /* Build configuration list for PBXNativeTarget "UTTypeOSTypes" */;
+			buildPhases = (
+				559E68CA273FC0D90030C3DB /* Headers */,
+				559E68CB273FC0D90030C3DB /* Sources */,
+				559E68CC273FC0D90030C3DB /* Frameworks */,
+				559E68CD273FC0D90030C3DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UTTypeOSTypes;
+			productName = UTTypeOSTypes;
+			productReference = 559E68CF273FC0D90030C3DB /* UTTypeOSTypes.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		559E68D7273FC0DA0030C3DB /* UTTypeOSTypesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 559E68E5273FC0DA0030C3DB /* Build configuration list for PBXNativeTarget "UTTypeOSTypesTests" */;
+			buildPhases = (
+				559E68D4273FC0DA0030C3DB /* Sources */,
+				559E68D5273FC0DA0030C3DB /* Frameworks */,
+				559E68D6273FC0DA0030C3DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				559E68DB273FC0DA0030C3DB /* PBXTargetDependency */,
+			);
+			name = UTTypeOSTypesTests;
+			productName = UTTypeOSTypesTests;
+			productReference = 559E68D8273FC0DA0030C3DB /* UTTypeOSTypesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		55BE4B2C270BC16600100A7D /* TISAdditions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55BE4B3E270BC16600100A7D /* Build configuration list for PBXNativeTarget "TISAdditions" */;
+			buildPhases = (
+				55BE4B28270BC16600100A7D /* Headers */,
+				55BE4B29270BC16600100A7D /* Sources */,
+				55BE4B2A270BC16600100A7D /* Frameworks */,
+				55BE4B2B270BC16600100A7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TISAdditions;
+			productName = TISAdditions;
+			productReference = 55BE4B2D270BC16600100A7D /* TISAdditions.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		55BE4B35270BC16600100A7D /* TISAdditionsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55BE4B41270BC16600100A7D /* Build configuration list for PBXNativeTarget "TISAdditionsTests" */;
+			buildPhases = (
+				55BE4B32270BC16600100A7D /* Sources */,
+				55BE4B33270BC16600100A7D /* Frameworks */,
+				55BE4B34270BC16600100A7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55BE4B39270BC16600100A7D /* PBXTargetDependency */,
+			);
+			name = TISAdditionsTests;
+			productName = TISAdditionsTests;
+			productReference = 55BE4B36270BC16600100A7D /* TISAdditionsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		55E11DE01AE7114000815555 /* SwiftAudioAdditions */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55E11DF81AE7114000815555 /* Build configuration list for PBXNativeTarget "SwiftAudioAdditions" */;
@@ -1143,8 +1538,9 @@
 		550FBAB519A7ADC500EFBD3D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1020;
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = "C.W. Betts";
 				TargetAttributes = {
 					550FBABD19A7ADC500EFBD3D = {
@@ -1177,13 +1573,22 @@
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
-					55403A001A745003007A488E = {
-						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 1000;
+					554FE7A728C74A3400418258 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+						ProvisioningStyle = Automatic;
 					};
-					55403A0A1A745003007A488E = {
-						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 1000;
+					554FE7AE28C74A3400418258 = {
+						CreatedOnToolsVersion = 13.4.1;
+						ProvisioningStyle = Automatic;
+					};
+					5560389326BF2CC800CD1984 = {
+						CreatedOnToolsVersion = 12.5.1;
+						ProvisioningStyle = Automatic;
+					};
+					5560389B26BF2CC800CD1984 = {
+						CreatedOnToolsVersion = 12.5.1;
+						ProvisioningStyle = Automatic;
 					};
 					55706D8E1A1EC2440000FD93 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1202,6 +1607,22 @@
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
 					};
+					559E68CE273FC0D90030C3DB = {
+						CreatedOnToolsVersion = 13.1;
+						ProvisioningStyle = Automatic;
+					};
+					559E68D7273FC0DA0030C3DB = {
+						CreatedOnToolsVersion = 13.1;
+						ProvisioningStyle = Automatic;
+					};
+					55BE4B2C270BC16600100A7D = {
+						CreatedOnToolsVersion = 13.0;
+						ProvisioningStyle = Automatic;
+					};
+					55BE4B35270BC16600100A7D = {
+						CreatedOnToolsVersion = 13.0;
+						ProvisioningStyle = Automatic;
+					};
 					55E11DE01AE7114000815555 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1020;
@@ -1213,7 +1634,7 @@
 				};
 			};
 			buildConfigurationList = 550FBAB819A7ADC500EFBD3D /* Build configuration list for PBXProject "SwiftAdditions" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1228,8 +1649,6 @@
 				550FBAC819A7ADC500EFBD3D /* SwiftAdditionsTests */,
 				55706D8E1A1EC2440000FD93 /* SwiftIOKitAdditions */,
 				55706D981A1EC2440000FD93 /* SwiftIOKitAdditionsTests */,
-				55403A001A745003007A488E /* ForceFeedbackAdditions */,
-				55403A0A1A745003007A488E /* ForceFeedbackAdditionsTests */,
 				55E11DE01AE7114000815555 /* SwiftAudioAdditions */,
 				55E11DEA1AE7114000815555 /* SwiftAudioAdditionsTests */,
 				5527AC121FAE7CB1009CC7FC /* CoreTextAdditions */,
@@ -1240,6 +1659,14 @@
 				5518F061251D5D6600528AED /* SIMDAdditionsTests */,
 				5518A41B1B03E920005AF928 /* All Additions */,
 				5518A4271B03F190005AF928 /* All Additions-iOS */,
+				5560389326BF2CC800CD1984 /* FoundationAdditions */,
+				5560389B26BF2CC800CD1984 /* FoundationAdditionsTests */,
+				55BE4B2C270BC16600100A7D /* TISAdditions */,
+				55BE4B35270BC16600100A7D /* TISAdditionsTests */,
+				559E68CE273FC0D90030C3DB /* UTTypeOSTypes */,
+				559E68D7273FC0DA0030C3DB /* UTTypeOSTypesTests */,
+				554FE7A728C74A3400418258 /* ColorSyncHelpers */,
+				554FE7AE28C74A3400418258 /* ColorSyncHelpersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1284,17 +1711,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5515E14C28D5BD9400FE6EEA /* PostCrypt.pfb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		554039FF1A745003007A488E /* Resources */ = {
+		554FE7A628C74A3400418258 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55403A091A745003007A488E /* Resources */ = {
+		554FE7AD28C74A3400418258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389226BF2CC800CD1984 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389A26BF2CC800CD1984 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1329,6 +1771,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		559E68CD273FC0D90030C3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559E68D6273FC0DA0030C3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B2B270BC16600100A7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B34270BC16600100A7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55E11DDF1AE7114000815555 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1351,17 +1821,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D8DD861A7EE48B0046C1F7 /* AppKit.swift in Sources */,
-				55C1A6AF1A07223B00C7A733 /* AdditionalAdditions.swift in Sources */,
-				55ABE82F1A0815FA006B6AF9 /* CoreGraphics.swift in Sources */,
-				550FBADA19A7AE6F00EFBD3D /* FoundationTypesAdditions.swift in Sources */,
 				556B05AD216DE4CB0025EFC5 /* SAMacError.m in Sources */,
+				555BB493288E458C00A255E0 /* CGColorSpace.swift in Sources */,
 				5577287819ABE259008328D0 /* MacTypesAdditions.swift in Sources */,
-				550B04A01A0D5932002BD56E /* COMUUIDs.swift in Sources */,
+				553D4EFB26E41AE60041DB2E /* CoreGraphics.swift in Sources */,
 				556B05AF216DEB750025EFC5 /* SAMacError.swift in Sources */,
-				5587E0C01A0A115D00CA1400 /* Endianness.swift in Sources */,
-				55251E2C24937417007BC863 /* CFBitVector.swift in Sources */,
 				5568C1021C63F1840050E2BA /* AppleScriptFoundation.swift in Sources */,
-				555D85EA1D26F29E004EA8E7 /* CocoaComparable.swift in Sources */,
 				552627A11BDF52A4005AAF63 /* Characters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1402,12 +1867,19 @@
 				5527AC3C1FAE7CE8009CC7FC /* CTStringAttributesAdditions.swift in Sources */,
 				5527AC391FAE7CE8009CC7FC /* CTFontDescriptorAdditions.swift in Sources */,
 				5527AC3F1FAE7CE8009CC7FC /* CTAdditionsSwiftHelpers.m in Sources */,
+				558D71CE26DF54E8002F5255 /* CTRunDelegateAdditions.swift in Sources */,
 				5527AC3A1FAE7CE8009CC7FC /* CTRubyAnnotationAdditions.swift in Sources */,
 				5527AC431FAE7CE8009CC7FC /* CTFontAdditions.swift in Sources */,
+				554FE7A228C4028900418258 /* CTAttributedStringAdditions.swift in Sources */,
+				5515E14628D07CFF00FE6EEA /* CTTypesetterAdditions.swift in Sources */,
 				5527AC441FAE7CE8009CC7FC /* CTFontCollectionAdditions.swift in Sources */,
 				5527AC451FAE7CE8009CC7FC /* CTFontManagerAdditions.swift in Sources */,
+				5515E14428CFFF8100FE6EEA /* CTGlyphInfoAdditions.swift in Sources */,
+				554536ED266235F40097DD71 /* CTFramesetterAdditions.swift in Sources */,
+				554536EB266222EC0097DD71 /* CTMisc.swift in Sources */,
 				5505E0BB2408D62B002339C7 /* CTParagraphStyleAdditions.swift in Sources */,
 				5527AC3E1FAE7CE8009CC7FC /* CTFrameAdditions.swift in Sources */,
+				558D71D026DF5E43002F5255 /* CTAFontManagerErrors.swift in Sources */,
 				5527AC411FAE7CE8009CC7FC /* CTLineAdditions.swift in Sources */,
 				5527AC381FAE7CE8009CC7FC /* CTTextTabAdditions.swift in Sources */,
 				5527AC421FAE7CE8009CC7FC /* CTRunAdditions.swift in Sources */,
@@ -1422,20 +1894,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		554039FC1A745003007A488E /* Sources */ = {
+		554FE7A428C74A3400418258 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55FB67FE21062B1C00C1AF96 /* FFAErrors.m in Sources */,
-				55403A1A1A74502B007A488E /* ForceFeedback.swift in Sources */,
+				554FE7C828C74AC000418258 /* ColorSyncProfileSwift.swift in Sources */,
+				554FE7CA28C74AC000418258 /* ColorSyncProfileClass.swift in Sources */,
+				554FE7CB28C74AC000418258 /* CMM.swift in Sources */,
+				554FE7C728C74AC000418258 /* ColorSyncTransformSwift.swift in Sources */,
+				554FE7CC28C74AC000418258 /* Error.swift in Sources */,
+				554FE7CD28C74AC000418258 /* ColorSyncDevice.swift in Sources */,
+				554FE7CE28C74AC000418258 /* ColorSyncTransformClass.swift in Sources */,
+				554FE7C928C74AC000418258 /* ColorSyncCMMSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55403A071A745003007A488E /* Sources */ = {
+		554FE7AB28C74A3400418258 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55403A131A745003007A488E /* ForceFeedbackAdditionsTests.swift in Sources */,
+				554FE7B528C74A3400418258 /* ColorSyncHelpersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389026BF2CC800CD1984 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556038AB26BF2D1200CD1984 /* FoundationTypesAdditions.swift in Sources */,
+				556038AF26BF2D1200CD1984 /* Endianness.swift in Sources */,
+				5523499A2CAB8F03001238EE /* CFMessagePortAdditions.swift in Sources */,
+				555D85EA1D26F29E004EA8E7 /* CocoaComparable.swift in Sources */,
+				5540780E26C5E7440054E0B6 /* AdditionalAdditions.swift in Sources */,
+				556038AE26BF2D1200CD1984 /* CFBitVector.swift in Sources */,
+				556038B126BF2D1200CD1984 /* CFTypeProtocol.swift in Sources */,
+				556038B026BF2D1200CD1984 /* CFBinaryHeap.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5560389826BF2CC800CD1984 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				556038A226BF2CC800CD1984 /* FoundationAdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1444,12 +1945,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E6D08D23A9988D009BF006 /* IOHIDElement.swift in Sources */,
+				557D49CC27CF76B0006C2C69 /* pwr mgt.swift in Sources */,
 				5563E582239F3033007A1600 /* IOHIDManager.swift in Sources */,
 				5563E584239F453F007A1600 /* IOHIDDevice.swift in Sources */,
+				55E5D0C4267801D0000355FE /* misc.swift in Sources */,
 				5563E586239F4C8F007A1600 /* IOHIDValue.swift in Sources */,
+				55FEDB1A2D20B46D00C34474 /* KextManager.swift in Sources */,
 				55E6D09123A9D92A009BF006 /* IOHIDTransaction.swift in Sources */,
-				55706DA91A1EC2880000FD93 /* IOCFPlugInClass.swift in Sources */,
-				55DAF5931A337C91008281ED /* COMUUIDs.swift in Sources */,
 				55E6D08F23A9CC8B009BF006 /* IOHIDQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1475,6 +1977,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				558DC05E217D04840022E081 /* QuartzAdditionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559E68CB273FC0D90030C3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559E68E7273FC10E0030C3DB /* UTTypes.swift in Sources */,
+				559E68D3273FC0DA0030C3DB /* UTTypeOSTypes.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		559E68D4273FC0DA0030C3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559E68DE273FC0DA0030C3DB /* UTTypeOSTypesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B29270BC16600100A7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BE4B44270BC17A00100A7D /* TextInputSources.swift in Sources */,
+				55BE4B31270BC16600100A7D /* TISAdditions.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BE4B32270BC16600100A7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BE4B3C270BC16600100A7D /* TISAdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1506,6 +2042,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		550A49AF2864F76000FBD6C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5560389326BF2CC800CD1984 /* FoundationAdditions */;
+			targetProxy = 550A49AE2864F76000FBD6C8 /* PBXContainerItemProxy */;
+		};
+		550A49B12864F76000FBD6C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55BE4B2C270BC16600100A7D /* TISAdditions */;
+			targetProxy = 550A49B02864F76000FBD6C8 /* PBXContainerItemProxy */;
+		};
+		550A49B32864F76000FBD6C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 559E68CE273FC0D90030C3DB /* UTTypeOSTypes */;
+			targetProxy = 550A49B22864F76000FBD6C8 /* PBXContainerItemProxy */;
+		};
 		5518A4201B03E931005AF928 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 550FBABD19A7ADC500EFBD3D /* SwiftAdditions */;
@@ -1515,11 +2066,6 @@
 			isa = PBXTargetDependency;
 			target = 55706D8E1A1EC2440000FD93 /* SwiftIOKitAdditions */;
 			targetProxy = 5518A4211B03E931005AF928 /* PBXContainerItemProxy */;
-		};
-		5518A4241B03E931005AF928 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 55403A001A745003007A488E /* ForceFeedbackAdditions */;
-			targetProxy = 5518A4231B03E931005AF928 /* PBXContainerItemProxy */;
 		};
 		5518A4261B03E931005AF928 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1571,11 +2117,6 @@
 			target = 5527AC121FAE7CB1009CC7FC /* CoreTextAdditions */;
 			targetProxy = 5527AC481FAE7D4A009CC7FC /* PBXContainerItemProxy */;
 		};
-		5527AC4B1FAE8327009CC7FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 550FBABD19A7ADC500EFBD3D /* SwiftAdditions */;
-			targetProxy = 5527AC4A1FAE8327009CC7FC /* PBXContainerItemProxy */;
-		};
 		5531C6C72242489C00AFB442 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 558DC04F217D04830022E081 /* QuartzAdditions */;
@@ -1586,15 +2127,25 @@
 			target = 558DC04F217D04830022E081 /* QuartzAdditions */;
 			targetProxy = 5531C6C8224248A400AFB442 /* PBXContainerItemProxy */;
 		};
-		55403A0E1A745003007A488E /* PBXTargetDependency */ = {
+		554FE7B228C74A3400418258 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55403A001A745003007A488E /* ForceFeedbackAdditions */;
-			targetProxy = 55403A0D1A745003007A488E /* PBXContainerItemProxy */;
+			target = 554FE7A728C74A3400418258 /* ColorSyncHelpers */;
+			targetProxy = 554FE7B128C74A3400418258 /* PBXContainerItemProxy */;
 		};
-		55403A1C1A745065007A488E /* PBXTargetDependency */ = {
+		554FE7D228C74CA700418258 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 550FBABD19A7ADC500EFBD3D /* SwiftAdditions */;
-			targetProxy = 55403A1B1A745065007A488E /* PBXContainerItemProxy */;
+			target = 5560389326BF2CC800CD1984 /* FoundationAdditions */;
+			targetProxy = 554FE7D128C74CA700418258 /* PBXContainerItemProxy */;
+		};
+		5560389F26BF2CC800CD1984 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5560389326BF2CC800CD1984 /* FoundationAdditions */;
+			targetProxy = 5560389E26BF2CC800CD1984 /* PBXContainerItemProxy */;
+		};
+		556038B326BF2D2F00CD1984 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5560389326BF2CC800CD1984 /* FoundationAdditions */;
+			targetProxy = 556038B226BF2D2F00CD1984 /* PBXContainerItemProxy */;
 		};
 		55706D9C1A1EC2440000FD93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1611,10 +2162,30 @@
 			target = 558DC04F217D04830022E081 /* QuartzAdditions */;
 			targetProxy = 558DC05A217D04840022E081 /* PBXContainerItemProxy */;
 		};
+		559E68DB273FC0DA0030C3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 559E68CE273FC0D90030C3DB /* UTTypeOSTypes */;
+			targetProxy = 559E68DA273FC0DA0030C3DB /* PBXContainerItemProxy */;
+		};
 		55ACBFDA1D5A617900E4F677 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 550FBABD19A7ADC500EFBD3D /* SwiftAdditions */;
 			targetProxy = 55ACBFD91D5A617900E4F677 /* PBXContainerItemProxy */;
+		};
+		55BE4B27270BBED000100A7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5560389326BF2CC800CD1984 /* FoundationAdditions */;
+			targetProxy = 55BE4B26270BBED000100A7D /* PBXContainerItemProxy */;
+		};
+		55BE4B39270BC16600100A7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55BE4B2C270BC16600100A7D /* TISAdditions */;
+			targetProxy = 55BE4B38270BC16600100A7D /* PBXContainerItemProxy */;
+		};
+		55D3DCD02BBA089600A48BDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 550FBABD19A7ADC500EFBD3D /* SwiftAdditions */;
+			targetProxy = 55D3DCCF2BBA089600A48BDE /* PBXContainerItemProxy */;
 		};
 		55E11DEE1AE7114000815555 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1627,11 +2198,11 @@
 		550FBACF19A7ADC500EFBD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -1649,6 +2220,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1657,9 +2229,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1675,31 +2249,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
 		550FBAD019A7ADC500EFBD3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -1717,6 +2296,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1725,9 +2305,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1736,79 +2318,119 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
 		550FBAD219A7ADC500EFBD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2014 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos watchsimulator watchos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Debug;
 		};
 		550FBAD319A7ADC500EFBD3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2014 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos watchsimulator watchos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Release;
 		};
 		550FBAD519A7ADC500EFBD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
@@ -1816,16 +2438,24 @@
 		550FBAD619A7ADC500EFBD3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
@@ -1833,6 +2463,7 @@
 		5518A41C1B03E920005AF928 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1840,6 +2471,7 @@
 		5518A41D1B03E920005AF928 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1868,14 +2500,22 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = SIMDAdditions/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.SIMDAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1895,14 +2535,22 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = SIMDAdditions/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.SIMDAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1914,13 +2562,17 @@
 		5518F06D251D5D6600528AED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = SIMDAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.SIMDAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1933,14 +2585,18 @@
 		5518F06E251D5D6600528AED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = SIMDAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.SIMDAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1952,53 +2608,79 @@
 		5527AC241FAE7CB1009CC7FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTextAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2017 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.CoreTextAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Debug;
 		};
 		5527AC251FAE7CB1009CC7FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTextAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2017 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.CoreTextAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Release;
 		};
 		5527AC261FAE7CB1009CC7FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = CoreTextAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.CoreTextAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
@@ -2007,81 +2689,269 @@
 		5527AC271FAE7CB1009CC7FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = CoreTextAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.CoreTextAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
-		55403A141A745003007A488E /* Debug */ = {
+		554FE7B828C74A3400418258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ForceFeedbackAdditions/Info.plist;
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2016 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.ColorSyncHelpers;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
-		55403A151A745003007A488E /* Release */ = {
+		554FE7B928C74A3400418258 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ForceFeedbackAdditions/Info.plist;
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2016 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.ColorSyncHelpers;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Release;
 		};
-		55403A161A745003007A488E /* Debug */ = {
+		554FE7BB28C74A3400418258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ForceFeedbackAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.ColorSyncHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
-		55403A171A745003007A488E /* Release */ = {
+		554FE7BC28C74A3400418258 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ForceFeedbackAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.ColorSyncHelpersTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
+			};
+			name = Release;
+		};
+		556038A526BF2CC800CD1984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundationAdditions/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.FoundationAdditions;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
+			};
+			name = Debug;
+		};
+		556038A626BF2CC800CD1984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoundationAdditions/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.FoundationAdditions;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
+			};
+			name = Release;
+		};
+		556038A726BF2CC800CD1984 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FoundationAdditionsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.FoundationAdditionsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		556038A826BF2CC800CD1984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = FoundationAdditionsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.FoundationAdditionsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2089,13 +2959,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftIOKitAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2014 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2106,13 +2982,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftIOKitAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2014 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2123,12 +3005,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftIOKitAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2138,12 +3025,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftIOKitAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.MaddTheSane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2152,32 +3044,47 @@
 		558DC062217D04840022E081 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuartzAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2018 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuartzAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Debug;
 		};
 		558DC063217D04840022E081 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -2185,36 +3092,55 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuartzAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2018 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuartzAdditions;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Release;
 		};
 		558DC065217D04840022E081 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = QuartzAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuartzAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
@@ -2223,80 +3149,364 @@
 		558DC066217D04840022E081 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = QuartzAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.QuartzAdditionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+		559E68E0273FC0DA0030C3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.UTTypeOSTypes;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		559E68E1273FC0DA0030C3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.UTTypeOSTypes;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		559E68E2273FC0DA0030C3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.UTTypeOSTypesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		559E68E3273FC0DA0030C3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.UTTypeOSTypesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		55BE4B3F270BC16600100A7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.TISAdditions;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		55BE4B40270BC16600100A7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 C.W. Betts. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++17";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.TISAdditions;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		55BE4B42270BC16600100A7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.TISAdditionsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		55BE4B43270BC16600100A7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.TISAdditionsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		55E11DF41AE7114000815555 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftAudioAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2015 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
 			};
 			name = Debug;
 		};
 		55E11DF51AE7114000815555 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftAudioAdditions/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2015 C.W. Betts. All rights reserved.";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
 			};
 			name = Release;
 		};
 		55E11DF61AE7114000815555 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftAudioAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
@@ -2304,17 +3514,25 @@
 		55E11DF71AE7114000815555 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SwiftAudioAdditionsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.maddthesane.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6,7";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
@@ -2403,20 +3621,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55403A181A745003007A488E /* Build configuration list for PBXNativeTarget "ForceFeedbackAdditions" */ = {
+		554FE7B728C74A3400418258 /* Build configuration list for PBXNativeTarget "ColorSyncHelpers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55403A141A745003007A488E /* Debug */,
-				55403A151A745003007A488E /* Release */,
+				554FE7B828C74A3400418258 /* Debug */,
+				554FE7B928C74A3400418258 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55403A191A745003007A488E /* Build configuration list for PBXNativeTarget "ForceFeedbackAdditionsTests" */ = {
+		554FE7BA28C74A3400418258 /* Build configuration list for PBXNativeTarget "ColorSyncHelpersTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55403A161A745003007A488E /* Debug */,
-				55403A171A745003007A488E /* Release */,
+				554FE7BB28C74A3400418258 /* Debug */,
+				554FE7BC28C74A3400418258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		556038A926BF2CC800CD1984 /* Build configuration list for PBXNativeTarget "FoundationAdditions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				556038A526BF2CC800CD1984 /* Debug */,
+				556038A626BF2CC800CD1984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		556038AA26BF2CC800CD1984 /* Build configuration list for PBXNativeTarget "FoundationAdditionsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				556038A726BF2CC800CD1984 /* Debug */,
+				556038A826BF2CC800CD1984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2453,6 +3689,42 @@
 			buildConfigurations = (
 				558DC065217D04840022E081 /* Debug */,
 				558DC066217D04840022E081 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		559E68E4273FC0DA0030C3DB /* Build configuration list for PBXNativeTarget "UTTypeOSTypes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				559E68E0273FC0DA0030C3DB /* Debug */,
+				559E68E1273FC0DA0030C3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		559E68E5273FC0DA0030C3DB /* Build configuration list for PBXNativeTarget "UTTypeOSTypesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				559E68E2273FC0DA0030C3DB /* Debug */,
+				559E68E3273FC0DA0030C3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55BE4B3E270BC16600100A7D /* Build configuration list for PBXNativeTarget "TISAdditions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55BE4B3F270BC16600100A7D /* Debug */,
+				55BE4B40270BC16600100A7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55BE4B41270BC16600100A7D /* Build configuration list for PBXNativeTarget "TISAdditionsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55BE4B42270BC16600100A7D /* Debug */,
+				55BE4B43270BC16600100A7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

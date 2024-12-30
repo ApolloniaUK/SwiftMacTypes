@@ -7,8 +7,11 @@
 //
 
 import Foundation
-import CoreText.CTFont
-import SwiftAdditions
+import CoreText
+import FoundationAdditions
+#if SWIFT_PACKAGE
+@_implementationOnly import CTAdditionsSwiftHelpers
+#endif
 
 public extension CTFont {
 	/// Font table tags provide access to font table data.
@@ -17,17 +20,10 @@ public extension CTFont {
 	/// Options for descriptor match and font creation.
 	typealias Options = CTFontOptions
 	
-	/// Returns the Core Foundation type identifier for CoreText fonts.
-	///
-	/// - returns: The identifier for the opaque type `CTFontRef`.
-	@inlinable class var typeID: CFTypeID {
-		return CTFontGetTypeID()
-	}
-
 	/// These constants represent the specific user interface purpose to specify for font creation.
 	///
-	/// Use these constants with `CTFont.create(uiType:size:forLanguage:)` to indicate the intended user interface usage
-	/// of the font reference to be created.
+	/// Use these constants with `CTFont.create(uiType:size:forLanguage:)` to indicate the intended
+	/// user interface usage of the font reference to be created.
 	typealias UIFontType = CTFontUIFontType
 	
 	/// These constants describe font table options.
@@ -57,11 +53,12 @@ public extension CTFont {
 	/// matrix attributes. The `name` parameter is the only required parameter, and default values will
 	/// be used for unspecified parameters. A best match will be found if all parameters cannot be
 	/// matched identically.
+	@available(swift, introduced: 2.0, deprecated: 5.8, message: "Use CTFont(_:size:) or CTFont(_:transform:)")
 	class func create(withName name: String, size: CGFloat, matrix: CGAffineTransform? = nil) -> CTFont {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateWithName(name as NSString, size, &matrix)
 		} else {
-			return CTFontCreateWithName(name as NSString, size, nil)
+			return self.init(name as NSString, size: size)
 		}
 	}
 	
@@ -75,11 +72,12 @@ public extension CTFont {
 	/// font descriptor. The `size` and `matrix` parameters will override any specified in the font
 	/// descriptor, unless they are unspecified. A best match font will always be returned, and default
 	/// values will be used for any unspecified.
+	@available(swift, introduced: 2.0, deprecated: 5.8, message: "Use CTFont(_:size:) or CTFont(_:transform:)")
 	class func create(with descriptor: CTFontDescriptor, size: CGFloat, matrix: CGAffineTransform? = nil) -> CTFont {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateWithFontDescriptor(descriptor, size, &matrix)
 		} else {
-			return CTFontCreateWithFontDescriptor(descriptor, size, nil)
+			return self.init(descriptor, size: size)
 		}
 	}
 	
@@ -98,7 +96,7 @@ public extension CTFont {
 	/// be used for unspecified parameters. A best match will be found if all parameters cannot be
 	/// matched identically.
 	class func create(withName name: String, size: CGFloat, matrix: CGAffineTransform? = nil, options: Options) -> CTFont {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateWithNameAndOptions(name as NSString, size, &matrix, options)
 		} else {
 			return CTFontCreateWithNameAndOptions(name as NSString, size, nil, options)
@@ -117,7 +115,7 @@ public extension CTFont {
 	/// descriptor, unless they are unspecified. A best match font will always be returned, and default
 	/// values will be used for any unspecified.
 	class func create(with descriptor: CTFontDescriptor, size: CGFloat, matrix: CGAffineTransform? = nil, options: Options) -> CTFont {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateWithFontDescriptorAndOptions(descriptor, size, &matrix, options)
 		} else {
 			return CTFontCreateWithFontDescriptorAndOptions(descriptor, size, nil, options)
@@ -126,22 +124,157 @@ public extension CTFont {
 
 	/// Returns the special UI font for the given language and UI type.
 	/// - parameter uiType: A uiType constant specifying the intended UI use for the requested font reference.
-	/// - parameter size: The point size for the font reference. If *0.0* is specified, the default size for the requested uiType is used.
-	/// - parameter language: Language identifier to select a font for a particular localization. If unspecified, the current system language is used. The format of the language identifier should conform to *UTS #35*.
-	/// - returns: This function returns the correct font for various UI uses. The only required parameter is the `uiType` selector, unspecified optional parameters will use default values.
-	class func create(uiType: UIFontType, size: CGFloat, language: String?) -> CTFont? {
-		return CTFontCreateUIFontForLanguage(uiType, size, language as NSString?)
+	/// - parameter size: The point size for the font reference. If *0.0* is specified, the default size for the
+	/// requested uiType is used.
+	/// - parameter language: Language identifier to select a font for a particular localization. If unspecified,
+	/// the current system language is used. The format of the language identifier should conform to *UTS #35*.
+	/// - returns: This function returns the correct font for various UI uses. The only required parameter is
+	/// the `uiType` selector, unspecified optional parameters will use default values.
+	@available(swift, introduced: 2.0, deprecated: 5.8, message: "Use CTFont(_:size:) or CTFont(_:size:language:)")
+	class func create(uiType: UIFontType, size: CGFloat, forLanguage language: String? = nil) -> CTFont? {
+		return self.init(uiType, size: size, language: language as NSString?)
 	}
 	
-	enum FontNameKey: CustomStringConvertible, RawRepresentable {
-		public typealias RawValue = String
+	/// Creates a new font reference from an existing Core Graphics font reference.
+	/// - parameter graphicsFont: A valid Core Graphics font reference.
+	/// - parameter size: The point size for the font reference. If *0.0* is specified the default font size of *12.0* is used.
+	/// - parameter matrix: The transformation matrix for the font. In most cases, set this parameter to be `nil`.
+	/// If `nil`, the identity matrix is used. Optional.
+	/// - parameter attributes: Additional attributes that should be matched. Can be `nil`, default is `nil`.
+	class func create(graphicsFont: CGFont, size: CGFloat, matrix: CGAffineTransform? = nil, attributes: CTFontDescriptor? = nil) -> CTFont {
+		if var matrix {
+			return CTFontCreateWithGraphicsFont(graphicsFont, size, &matrix, attributes)
+		} else {
+			return CTFontCreateWithGraphicsFont(graphicsFont, size, nil, attributes)
+		}
+	}
+	
+	@frozen enum FontNameKey: RawLosslessStringConvertibleCFString, Hashable, Codable, Sendable, CaseIterable {
+		public typealias RawValue = CFString
 		
-		public init?(rawValue: String) {
-			self.init(stringValue: rawValue)
+		/// Creates a `FontNameKey` from a supplied string.
+		/// If `rawValue` doesn't match any of the `kCTFont...NameKey`s, returns `nil`.
+		/// - parameter rawValue: The string value to attempt to init `FontNameKey` into.
+		public init?(rawValue: CFString) {
+			switch rawValue {
+			case kCTFontCopyrightNameKey:
+				self = .copyright
+				
+			case kCTFontFamilyNameKey:
+				self = .family
+				
+			case kCTFontSubFamilyNameKey:
+				self = .subFamily
+				
+			case kCTFontStyleNameKey:
+				self = .style
+				
+			case kCTFontUniqueNameKey:
+				self = .unique
+				
+			case kCTFontFullNameKey:
+				self = .full
+				
+			case kCTFontVersionNameKey:
+				self = .version
+				
+			case kCTFontPostScriptNameKey:
+				self = .postScript
+				
+			case kCTFontCopyrightNameKey:
+				self = .copyright
+				
+			case kCTFontTrademarkNameKey:
+				self = .trademark
+				
+			case kCTFontManufacturerNameKey:
+				self = .manufacturer
+				
+			case kCTFontDesignerNameKey:
+				self = .designer
+				
+			case kCTFontDescriptionNameKey:
+				self = .fontDescription
+				
+			case kCTFontVendorURLNameKey:
+				self = .vendorURL
+				
+			case kCTFontDesignerURLNameKey:
+				self = .designerURL
+				
+			case kCTFontLicenseNameKey:
+				self = .license
+				
+			case kCTFontLicenseURLNameKey:
+				self = .licenseURL
+				
+			case kCTFontSampleTextNameKey:
+				self = .sampleText
+				
+			case kCTFontPostScriptCIDNameKey:
+				self = .postScriptCID
+				
+			default:
+				return nil
+			}
 		}
 		
-		public var rawValue: String {
-			return cfString as String
+		public var rawValue: CFString {
+			switch self {
+			case .copyright:
+				return kCTFontCopyrightNameKey
+				
+			case .family:
+				return kCTFontFamilyNameKey
+				
+			case .subFamily:
+				return kCTFontSubFamilyNameKey
+				
+			case .style:
+				return kCTFontStyleNameKey
+				
+			case .unique:
+				return kCTFontUniqueNameKey
+				
+			case .full:
+				return kCTFontFullNameKey
+				
+			case .version:
+				return kCTFontVersionNameKey
+				
+			case .postScript:
+				return kCTFontPostScriptNameKey
+				
+			case .trademark:
+				return kCTFontTrademarkNameKey
+				
+			case .manufacturer:
+				return kCTFontManufacturerNameKey
+				
+			case .designer:
+				return kCTFontDesignerNameKey
+				
+			case .fontDescription:
+				return kCTFontDescriptionNameKey
+				
+			case .vendorURL:
+				return kCTFontVendorURLNameKey
+				
+			case .designerURL:
+				return kCTFontDesignerURLNameKey
+				
+			case .license:
+				return kCTFontLicenseNameKey
+				
+			case .licenseURL:
+				return kCTFontLicenseURLNameKey
+				
+			case .sampleText:
+				return kCTFontSampleTextNameKey
+				
+			case .postScriptCID:
+				return kCTFontPostScriptCIDNameKey
+			}
 		}
 		
 		/// The name specifier for the copyright name.
@@ -201,133 +334,11 @@ public extension CTFont {
 		/// The name specifier for the PostScript CID name.
 		case postScriptCID
 		
-		/// Creates a `FontNameKey` from s supplied string.
+		/// Creates a `FontNameKey` from a supplied string.
 		/// If `stringValue` doesn't match any of the `kCTFont...NameKey`s, returns `nil`.
 		/// - parameter stringValue: The string value to attempt to init `FontNameKey` from.
 		public init?(stringValue: String) {
-			switch stringValue {
-			case (kCTFontCopyrightNameKey as NSString as String):
-				self = .copyright
-				
-			case (kCTFontFamilyNameKey as NSString as String):
-				self = .family
-				
-			case (kCTFontSubFamilyNameKey as NSString as String):
-				self = .subFamily
-				
-			case (kCTFontStyleNameKey as NSString as String):
-				self = .style
-				
-			case (kCTFontUniqueNameKey as NSString as String):
-				self = .unique
-				
-			case (kCTFontFullNameKey as NSString as String):
-				self = .full
-				
-			case (kCTFontVersionNameKey as NSString as String):
-				self = .version
-				
-			case (kCTFontPostScriptNameKey as NSString as String):
-				self = .postScript
-				
-			case (kCTFontCopyrightNameKey as NSString as String):
-				self = .copyright
-				
-			case (kCTFontTrademarkNameKey as NSString as String):
-				self = .trademark
-				
-			case (kCTFontManufacturerNameKey as NSString as String):
-				self = .manufacturer
-				
-			case (kCTFontDesignerNameKey as NSString as String):
-				self = .designer
-				
-			case (kCTFontDescriptionNameKey as NSString as String):
-				self = .fontDescription
-				
-			case (kCTFontVendorURLNameKey as NSString as String):
-				self = .vendorURL
-				
-			case (kCTFontDesignerURLNameKey as NSString as String):
-				self = .designerURL
-				
-			case (kCTFontLicenseNameKey as NSString as String):
-				self = .license
-				
-			case (kCTFontLicenseURLNameKey as NSString as String):
-				self = .licenseURL
-				
-			case (kCTFontSampleTextNameKey as NSString as String):
-				self = .sampleText
-				
-			case (kCTFontPostScriptCIDNameKey as NSString as String):
-				self = .postScriptCID
-				
-			default:
-				return nil
-			}
-		}
-		
-		var cfString: CFString {
-			switch self {
-			case .copyright:
-				return kCTFontCopyrightNameKey
-				
-			case .family:
-				return kCTFontFamilyNameKey
-				
-			case .subFamily:
-				return kCTFontSubFamilyNameKey
-				
-			case .style:
-				return kCTFontStyleNameKey
-				
-			case .unique:
-				return kCTFontUniqueNameKey
-				
-			case .full:
-				return kCTFontFullNameKey
-				
-			case .version:
-				return kCTFontVersionNameKey
-				
-			case .postScript:
-				return kCTFontPostScriptNameKey
-				
-			case .trademark:
-				return kCTFontTrademarkNameKey
-				
-			case .manufacturer:
-				return kCTFontManufacturerNameKey
-				
-			case .designer:
-				return kCTFontDesignerNameKey
-				
-			case .fontDescription:
-				return kCTFontDescriptionNameKey
-				
-			case .vendorURL:
-				return kCTFontVendorURLNameKey
-				
-			case .designerURL:
-				return kCTFontDesignerURLNameKey
-				
-			case .license:
-				return kCTFontLicenseNameKey
-				
-			case .licenseURL:
-				return kCTFontLicenseURLNameKey
-				
-			case .sampleText:
-				return kCTFontSampleTextNameKey
-				
-			case .postScriptCID:
-				return kCTFontPostScriptCIDNameKey
-			}
-		}
-		
-		public var description: String {
-			return cfString as String
+			self.init(rawValue: stringValue as CFString)
 		}
 	}
 	
@@ -345,7 +356,7 @@ public extension CTFont {
 	/// slider.
 	/// - returns: A new font reference converted from the original with the specified attributes.
 	func copy(withAttributes attributes: CTFontDescriptor?, size: CGFloat, matrix: CGAffineTransform? = nil) -> CTFont {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateCopyWithAttributes(self, size, &matrix, attributes)
 		} else {
 			return CTFontCreateCopyWithAttributes(self, size, nil, attributes)
@@ -364,7 +375,7 @@ public extension CTFont {
 	/// - returns: a new font reference in the same family with the given symbolic traits, or `nil` if none
 	/// found in the system.
 	func copy(withSymbolicTraits symTraits: (traits: SymbolicTraits, mask: SymbolicTraits), size: CGFloat, matrix: CGAffineTransform? = nil) -> CTFont? {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateCopyWithSymbolicTraits(self, size, &matrix, symTraits.traits, symTraits.mask)
 		} else {
 			return CTFontCreateCopyWithSymbolicTraits(self, size, nil, symTraits.traits, symTraits.mask)
@@ -381,7 +392,7 @@ public extension CTFont {
 	/// - returns: Returns a new font reference with the original traits in the given family. `nil` if not
 	/// found in the system.
 	func copy(withFamilyName family: String, size: CGFloat, matrix: CGAffineTransform? = nil) -> CTFont? {
-		if var matrix = matrix {
+		if var matrix {
 			return CTFontCreateCopyWithFamily(self, size, &matrix, family as NSString)
 		} else {
 			return CTFontCreateCopyWithFamily(self, size, nil, family as NSString)
@@ -471,7 +482,7 @@ public extension CTFont {
 	/// The symbolic font traits.
 	///
 	/// This getter returns the symbolic traits of the font. This is equivalent to the `kCTFontSymbolicTrait`
-	/// of traits dictionary. See *CTFontTraits.h* for a definition of the font traits.
+	/// of `traits` dictionary. See *CTFontTraits.h* for a definition of the font traits.
 	@inlinable var symbolicTraits: SymbolicTraits {
 		return CTFontGetSymbolicTraits(self)
 	}
@@ -491,22 +502,22 @@ public extension CTFont {
 	//--------------------------------------------------------------------------
 	
 	/// The PostScript name.
-	var postScriptName: String {
+	@inlinable var postScriptName: String {
 		return CTFontCopyPostScriptName(self) as String
 	}
 	
 	/// The family name.
-	var familyName: String {
+	@inlinable var familyName: String {
 		return CTFontCopyFamilyName(self) as String
 	}
 	
 	/// The full name.
-	var fullName: String {
+	@inlinable var fullName: String {
 		return CTFontCopyFullName(self) as String
 	}
 	
 	/// The localized display name of the font
-	var displayName: String {
+	@inlinable var displayName: String {
 		return CTFontCopyDisplayName(self) as String
 	}
 
@@ -515,8 +526,8 @@ public extension CTFont {
 	/// - returns: The requested name for the font, or `nil` if the font does not have an entry for the
 	/// requested name. The Unicode version of the name will be preferred, otherwise the first available
 	/// will be used.
-	func name(ofKey nameKey: FontNameKey) -> String? {
-		return CTFontCopyName(self, nameKey.cfString) as String?
+	func name(of nameKey: FontNameKey) -> String? {
+		return CTFontCopyName(self, nameKey.rawValue) as String?
 	}
 	
 	/// Returns a localized font name and the actual language, if present.
@@ -527,9 +538,9 @@ public extension CTFont {
 	/// `actualLanguage`: A `String` of the language identifier of the returned name string. The format of the
 	/// language identifier will conform to *UTS #35*.
 	/// If CoreText can supply its own localized string where the font cannot, this value will be `nil`.
-	func localizedName(ofKey nameKey: FontNameKey) -> (name: String, actualLanguage: String?)? {
+	func localizedName(of nameKey: FontNameKey) -> (name: String, actualLanguage: String?)? {
 		var actualName: Unmanaged<CFString>? = nil
-		guard let name = CTFontCopyLocalizedName(self, nameKey.cfString, &actualName) as String? else {
+		guard let name = CTFontCopyLocalizedName(self, nameKey.rawValue, &actualName) as String? else {
 			return nil
 		}
 		return (name, actualName?.takeRetainedValue() as String?)
@@ -565,11 +576,11 @@ public extension CTFont {
 	
 	/// Performs basic character-to-glyph mapping.
 	///
-	/// This method only provides the nominal mapping as specified by the font's Unicode cmap (or
+	/// This method only provides the nominal mapping as specified by the font's Unicode `cmap` (or
 	/// equivalent); such mapping does not constitute proper Unicode layout: it is the caller's responsibility
 	/// to handle the Unicode properties of the characters.
-	/// - parameter characters: An array of characters (UTF-16 code units). Non-BMP characters must be encoded
-	/// as surrogate pairs.
+	/// - parameter characters: An array of characters (UTF-16 code units). Non-BMP characters must
+	/// be encoded as surrogate pairs.
 	/// - returns: `glyphs`: Glyphs for non-BMP characters are sparse: the first glyph corresponds to the full
 	/// character and the second glyph will be `0`.<br/>
 	/// `allMapped`: Indicates whether all provided characters were successfully mapped. A return value of true
@@ -681,6 +692,13 @@ public extension CTFont {
 		return CTFontGetGlyphWithName(self, glyphName as NSString)
 	}
 	
+	/// Returns the name for the specified glyph.
+	/// - parameter glyph: The glyph.
+	/// - returns: The glyph name as a `String` or `nil` if the glyph is invalid.
+	func name(forGlyph glyph: CGGlyph) -> String? {
+		return CTFontCopyNameForGlyph(self, glyph) as String?
+	}
+	
 	/// Calculates the bounding rects for an array of glyphs and returns the overall bounding rect for the run.
 	/// - parameter orientation: The intended drawing orientation of the glyphs. Used to determined which glyph
 	/// metrics to return.<br>
@@ -751,9 +769,10 @@ public extension CTFont {
 	/// - parameter matrix: An affine transform applied to the path. Can be `nil`, in which case
 	/// `CGAffineTransformIdentity` will be used.<br/>
 	/// Default is `nil`.
+	/// - returns: A `CGPath` object containing the glyph outlines, `nil` on error.
 	func path(forGlyph glyph: CGGlyph, matrix: CGAffineTransform? = nil) -> CGPath? {
 		let aPath: CGPath?
-		if var matrix = matrix {
+		if var matrix {
 			aPath = CTFontCreatePathForGlyph(self, glyph, &matrix)
 		} else {
 			aPath = CTFontCreatePathForGlyph(self, glyph, nil)
@@ -767,13 +786,117 @@ public extension CTFont {
 	*/
 	//--------------------------------------------------------------------------
 	
+	/// Font Variation Axis Dictionary Keys
+	///
+	/// These constants provide keys to font variation axis dictionary values.
+	enum VariationAxisKey: Hashable, RawLosslessStringConvertibleCFString, Codable, @unchecked Sendable {
+		
+		/// Key to get the variation axis identifier.
+		///
+		/// This key is used with a variation axis dictionary to get the axis identifier value as a `CFNumber`.
+		case identifier
+		
+		/// Key to get the variation axis minimum value.
+		///
+		/// This key is used with a variation axis dictionary to get the minimum axis value as a `CFNumber`.
+		case minimumValue
+		
+		/// Key to get the variation axis maximum value.
+		///
+		/// This key is used with a variation axis dictionary to get the maximum axis value as a `CFNumber`.
+		case maximumValue
+		
+		/// Key to get the variation axis default value.
+		///
+		/// This key is used with a variation axis dictionary to get the default axis value as a `CFNumber`.
+		case defaultValue
+		
+		/// Key to get the variation axis name string.
+		///
+		/// This key is used with a variation axis dictionary to get the localized variation axis name.
+		case name
+		
+		/// Key to get the hidden axis flag.
+		///
+		/// This key contains a `CFBoolean` value that is true when the font designer recommends the axis
+		/// not be exposed directly to end users in application interfaces.
+		@available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
+		case isHidden
+		
+		public init?(rawValue: CFString) {
+			if #available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *) {
+				if rawValue == kCTFontVariationAxisHiddenKey {
+					self = .isHidden
+					return
+				}
+			}
+			switch rawValue {
+			case kCTFontVariationAxisIdentifierKey:
+				self = .identifier
+				
+			case kCTFontVariationAxisMinimumValueKey:
+				self = .minimumValue
+				
+			case kCTFontVariationAxisMaximumValueKey:
+				self = .maximumValue
+				
+			case kCTFontVariationAxisDefaultValueKey:
+				self = .defaultValue
+				
+			case kCTFontVariationAxisNameKey:
+				self = .name
+				
+			default:
+				return nil
+			}
+		}
+
+		public var rawValue: CFString {
+			if #available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *) {
+				if self == .isHidden {
+					return kCTFontVariationAxisHiddenKey
+				}
+			}
+			switch self {
+			case .identifier:
+				return kCTFontVariationAxisIdentifierKey
+
+			case .minimumValue:
+				return kCTFontVariationAxisMinimumValueKey
+
+			case .maximumValue:
+				return kCTFontVariationAxisMaximumValueKey
+
+			case .defaultValue:
+				return kCTFontVariationAxisDefaultValueKey
+
+			case .name:
+				return kCTFontVariationAxisNameKey
+				
+			case .isHidden:
+				fatalError("We shouldn't be getting here!")
+			}
+		}
+	}
 	
 	/// An array of variation axis dictionaries.
 	///
 	/// This getter returns an array of variation axis dictionaries or `nil` if the font does not support
 	/// variations. Each variation axis dictionary contains the five `kCTFontVariationAxis`* keys.
-	var variationAxes: [[String: Any]]? {
-		return CTFontCopyVariationAxes(self) as? [[String: Any]]
+	var variationAxes: [[VariationAxisKey: Any]]? {
+		guard let val = CTFontCopyVariationAxes(self) as? [[CFString: Any]] else {
+			return nil
+		}
+		return val.map { val1 -> [VariationAxisKey: Any] in
+			let val3 = val1.compactMap { (key: CFString, value: Any) -> (VariationAxisKey, Any)? in
+				guard let key2 = VariationAxisKey(rawValue: key) else {
+					print("CTFont.variationAxes: \((CFCopyDescription(self) as String?) ?? "Unknown Font"): Unknown key \(key)?")
+					return nil
+				}
+				return (key2, value)
+			}
+			return Dictionary(uniqueKeysWithValues: val3)
+		}
 	}
 	
 	/// A variation dictionary.
@@ -782,10 +905,16 @@ public extension CTFont {
 	/// with variation identifier number keys. As of macOS 10.12 and iOS 10.0, only non-default values (as
 	/// determined by the variation axis) are returned.
 	///
-	/// - seealso: kCTFontVariationAxisIdentifierKey
-	/// - seealso: kCTFontVariationAxisDefaultValueKey
-	var variationInfo: [String: Any]? {
-		return CTFontCopyVariation(self) as? [String: Any]
+	/// - seealso: `kCTFontVariationAxisIdentifierKey`
+	/// - seealso: `kCTFontVariationAxisDefaultValueKey`
+	var variationInfo: [OSType: Double]? {
+		guard let tmp = CTFontCopyVariation(self) as? [NSNumber: NSNumber] else {
+			return nil
+		}
+		let aval = tmp.map { (key: NSNumber, value: NSNumber) -> (OSType, Double) in
+			return (key.uint32Value, value.doubleValue)
+		}
+		return Dictionary(uniqueKeysWithValues: aval)
 	}
 	
 	// MARK: - Font Features
@@ -795,8 +924,32 @@ public extension CTFont {
 	//--------------------------------------------------------------------------
 	
 	/// An array of font features
-	var features: [[String: Any]]? {
-		return CTFontCopyFeatures(self) as? [[String : Any]]
+	var features: [[FeatureType: Any]]? {
+		guard let feats = CTFontCopyFeatures(self) as? [[CFString : Any]] else {
+			return nil
+		}
+		return feats.map { sa in
+			let preDict = sa.compactMap { (key: CFString, value: Any) -> (FeatureType, Any)? in
+				guard let feat = FeatureType(rawValue: key) else {
+					return nil
+				}
+				if feat == .selectors, let valArr = value as? [[CFString: Any]] {
+					let newVal = valArr.map { sa2 in
+						let preDict2 = sa2.compactMap { (key2: CFString, value2: Any) -> (FeatureType.SelectorKey, Any)? in
+							guard let newKey = FeatureType.SelectorKey(rawValue: key2) else {
+								return nil
+							}
+							return (newKey, value2)
+						}
+						return Dictionary(uniqueKeysWithValues: preDict2)
+					}
+					return (.selectors, newVal)
+				} else {
+					return (feat, value)
+				}
+			}
+			return Dictionary(uniqueKeysWithValues: preDict)
+		}
 	}
 	
 	/// An array of font feature setting tuples.
@@ -807,6 +960,9 @@ public extension CTFont {
 	/// This getter returns a normalized array of font feature setting dictionaries. The array will only
 	/// contain the non-default settings that should be applied to the font, or `nil` if the default settings
 	/// should be used.
+	///
+	/// The feature settings are verified against those that the font supports and any that do not apply are removed.
+	/// Further, feature settings that represent a default setting for the font are also removed.
 	var featureSettings: [[String: Any]]? {
 		return CTFontCopyFeatureSettings(self) as? [[String: Any]]
 	}
@@ -817,6 +973,7 @@ public extension CTFont {
 	*/
 	//--------------------------------------------------------------------------
 	
+	/// Returns a Core Graphics font reference and attributes.
 	/// - returns: A `CGFont` for the given font reference. Additional attributes from the font will be
 	/// returned as a font descriptor via the `attributes` tuple.
 	func graphicsFont() -> (font: CGFont, attributes: CTFontDescriptor?) {
@@ -837,7 +994,7 @@ public extension CTFont {
 	/// - returns: An array of `CTFont.TableTag` values for the given font and the
 	/// supplied options.
 	func availableTables(options: TableOptions = []) -> [TableTag]? {
-		guard let numArr = __CTAFontCopyAvailableTables(self, options) else {
+		guard let numArr = CTAFontCopyAvailableTables(self, options) else {
 			return nil
 		}
 		
@@ -863,10 +1020,10 @@ public extension CTFont {
 	/// Results from `glyphs(forCharacters:)` (or similar APIs) do not perform any Unicode text layout.
 	/// - parameter context: `CGContext` used to render the glyphs.
 	/// - parameter gp: The glyphs and positions (origins) to be rendered. The positions are in user space.
-	func draw(glyphsAndPositions gp: [(glyph: CGGlyph, position: CGPoint)], context: CGContext) {
+	func draw(glyphsAndPositions gp: [(glyph: CGGlyph, position: CGPoint)], in context: CGContext) {
 		let glyphs = gp.map({return $0.glyph})
 		let positions = gp.map({return $0.position})
-		CTFontDrawGlyphs(self, glyphs, positions, gp.count, context)
+		draw(glyphs: glyphs, atPositions: positions, in: context)
 	}
 	
 	/// Renders the given glyphs from the CTFont at the given positions in the CGContext.
@@ -880,9 +1037,9 @@ public extension CTFont {
 	/// derived.
 	/// - parameter positions: The positions (origins) for each glyph. The positions are in user space. The
 	/// number of positions passed in must be equivalent to the number of glyphs.
-	func draw(glyphs: [CGGlyph], positions: [CGPoint], context: CGContext) {
-		let gp = zip(glyphs, positions).map({return $0})
-		draw(glyphsAndPositions: gp, context: context)
+	@inlinable func draw(glyphs: [CGGlyph], atPositions positions: [CGPoint], in context: CGContext) {
+		precondition(glyphs.count == positions.count)
+		CTFontDrawGlyphs(self, glyphs, positions, glyphs.count, context)
 	}
 	
 	/// Returns caret positions within a glyph.
@@ -895,7 +1052,7 @@ public extension CTFont {
 	/// This method may not be able to produce positions if the font does not
 	/// have the appropriate data, in which case it will return `nil`.
 	func ligatureCaretPositions(forGlyph glyph: CGGlyph, maxPositions: Int? = nil) -> [CGFloat]? {
-		if let maxPositions = maxPositions {
+		if let maxPositions {
 			var pos = [CGFloat](repeating: 0, count: maxPositions)
 			let neededCount = CTFontGetLigatureCaretPositions(self, glyph, &pos, maxPositions)
 			guard neededCount != 0 else {
@@ -923,11 +1080,468 @@ public extension CTFont {
 	/// fallback region according to the given language preferences. The style of the given is also matched as
 	/// well as the weight and width of the font is not one of the system UI font, otherwise the UI font
 	/// fallback is applied.
-	/// - parameter languagePrefList: The language preference list - ordered array of `String`s of ISO language
-	/// codes.
+	/// - parameter languagePrefList: The language preference list - ordered array of `String`s of ISO
+	/// language codes.
 	/// - returns: The ordered list of fallback fonts - ordered array of `CTFontDescriptor`s.
 	@available(OSX 10.8, iOS 6.0, watchOS 2.0, tvOS 9.0, *)
 	func defaultCascadeList(forLanguages languagePrefList: [String]?) -> [CTFontDescriptor]? {
 		return CTFontCopyDefaultCascadeListForLanguages(self, languagePrefList as NSArray?) as! [CTFontDescriptor]?
+	}
+	
+	/// Font Features
+	enum FeatureType: RawLosslessStringConvertibleCFString, Hashable, Codable, @unchecked Sendable {
+		public typealias RawValue = CFString
+		
+		/// Creates a `FontNameKey` from a supplied string.
+		/// If `rawValue` doesn't match any of the `kCTFont...NameKey`s, returns `nil`.
+		/// - parameter rawValue: The string value to attempt to init `FontNameKey` into.
+		public init?(rawValue: CFString) {
+			if #available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *) {
+				if rawValue == kCTFontFeatureSampleTextKey {
+					self = .sampleText
+					return
+				} else if rawValue == kCTFontFeatureTooltipTextKey {
+					self = .tooltipText
+					return
+				}
+			}
+			switch rawValue {
+			case kCTFontOpenTypeFeatureTag:
+				self = .openTypeTag
+				
+			case kCTFontOpenTypeFeatureValue:
+				self = .openTypeValue
+				
+			case kCTFontFeatureTypeIdentifierKey:
+				self = .identifier
+				
+			case kCTFontFeatureTypeNameKey:
+				self = .name
+				
+			case kCTFontFeatureTypeExclusiveKey:
+				self = .exclusive
+				
+			case kCTFontFeatureTypeSelectorsKey:
+				self = .selectors
+				
+			default:
+				return nil
+			}
+		}
+		
+		public var rawValue: CFString {
+			if #available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *) {
+				switch self {
+				case .sampleText:
+					return kCTFontFeatureSampleTextKey
+				case .tooltipText:
+					return kCTFontFeatureTooltipTextKey
+
+				default:
+					break
+				}
+			}
+			switch self {
+			case .openTypeTag:
+				return kCTFontOpenTypeFeatureTag
+			case .openTypeValue:
+				return kCTFontOpenTypeFeatureValue
+			case .identifier:
+				return kCTFontFeatureTypeIdentifierKey
+			case .name:
+				return kCTFontFeatureTypeNameKey
+			case .exclusive:
+				return kCTFontFeatureTypeExclusiveKey
+			case .selectors:
+				return kCTFontFeatureTypeSelectorsKey
+			case .sampleText, .tooltipText:
+				fatalError("We shouldn't have got here!")
+			}
+		}
+		
+		/// Key to get the OpenType feature tag.
+		///
+		/// This key can be used with a font feature dictionary to get the tag as a `CFString`.
+		@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+		case openTypeTag
+		
+		/// Key to get the OpenType feature value.
+		///
+		/// This key can be used with a font feature dictionary to get the value as a `CFNumber`.
+		@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+		case openTypeValue
+
+		/// Key to get the font feature type value.
+		///
+		/// This key can be used with a font feature dictionary to get the type identifier as a `CFNumber`.
+		@available(macOS 10.5, iOS 3.2, watchOS 2.0, tvOS 9.0, *)
+		case identifier
+		
+		/// Key to get the font feature name.
+		///
+		/// This key can be used with a font feature dictionary to get the localized type name string as a `CFString`.
+		@available(macOS 10.5, iOS 3.2, watchOS 2.0, tvOS 9.0, *)
+		case name
+
+		/// Key to get the font feature exclusive setting.
+		///
+		/// This key can be used with a font feature dictionary to get the the exclusive setting of the feature as
+		/// a `CFBoolean`. The value associated with this key indicates whether the feature selectors associated
+		/// with this type should be mutually exclusive.
+		@available(macOS 10.5, iOS 3.2, watchOS 2.0, tvOS 9.0, *)
+		case exclusive
+		
+		/// Key to get the font feature selectors.
+		///
+		/// This key can be used with a font feature dictionary to get the array of font feature selectors as a `CFArray`.
+		/// This is an array of selector dictionaries that contain the values for the following selector keys.
+		@available(macOS 10.5, iOS 3.2, watchOS 2.0, tvOS 9.0, *)
+		case selectors
+
+		/// Key to get the font feature sample text.
+		///
+		/// This key can be used with a font feature dictionary to get the localized sample text as a `CFString`.
+		@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+		case sampleText
+
+		/// Key to get the font feature tooltip text.
+		///
+		/// This key can be used with a font feature dictionary to get the localized tooltip text as a `CFString`.
+		@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+		case tooltipText
+
+		public enum SelectorKey: RawLosslessStringConvertibleCFString, Hashable, Codable, @unchecked Sendable {
+			public typealias RawValue = CFString
+
+			/// Key to get the font feature selector identifier.
+			///
+			/// This key can be used with a selector dictionary corresponding to a feature type to obtain the selector identifier value
+			/// as a `CFNumber`.
+			case identifier
+			
+			/// Key to get the font feature selector name.
+			///
+			/// This key is used with a selector dictionary to get the localized name string for the selector as a `CFString`.
+			case name
+			
+			/// Key to get the font feature selector default setting value.
+			///
+			/// This key is used with a selector dictionary to get the default indicator for the selector.
+			/// This value is a `CFBoolean` which if present and true indicates that this selector is the default setting
+			/// for the current feature type.
+			case `default`
+			
+			/// Key to get or specify the current feature setting.
+			///
+			/// This key is used with a selector dictionary to get or specify the current setting for the selector. This value
+			/// is a `CFBoolean` to indicate whether this selector is on or off. If this key is not present, the default
+			/// setting is used.
+			case setting
+			
+			/// Key to get the OpenType feature tag.
+			///
+			/// This key can be used with a font feature dictionary to get the tag as a `CFString`.
+			@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+			case openTypeTag
+			
+			/// Key to get the OpenType feature value.
+			///
+			/// This key can be used with a font feature dictionary to get the value as a `CFNumber`.
+			@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+			case openTypeValue
+			
+			public var rawValue: CFString {
+				switch self {
+				case .identifier:
+					return kCTFontFeatureSelectorIdentifierKey
+				case .name:
+					return kCTFontFeatureSelectorNameKey
+				case .default:
+					return kCTFontFeatureSelectorDefaultKey
+				case .setting:
+					return kCTFontFeatureSelectorSettingKey
+				case .openTypeTag:
+					return kCTFontOpenTypeFeatureTag
+				case .openTypeValue:
+					return kCTFontOpenTypeFeatureValue
+				}
+			}
+			
+			public init?(rawValue: CFString) {
+				switch rawValue {
+				case kCTFontFeatureSelectorIdentifierKey:
+					self = .identifier
+					
+				case kCTFontFeatureSelectorNameKey:
+					self = .name
+					
+				case kCTFontFeatureSelectorDefaultKey:
+					self = .default
+					
+				case kCTFontFeatureSelectorSettingKey:
+					self = .setting
+					
+				case kCTFontOpenTypeFeatureTag:
+					self = .openTypeTag
+					
+				case kCTFontOpenTypeFeatureValue:
+					self = .openTypeValue
+					
+				default:
+					return nil
+				}
+			}
+		}
+	}
+	
+	/// Returns metrics needed by clients performing their own typesetting of an adaptive image glyph.
+	///
+	/// Adaptive image glyphs are handled automatically when using an attributed string with system frameworks.
+	/// Clients performing their own typesetting can use this function to calculate the appropriate metrics for an adaptive image glyph,
+	/// including the ascent and descent to be used instead of those applicable to the font on its own.
+	/// - parameter provider: An object conforming to the `CTAdaptiveImageProviding` protocol. Default results will be returned in the absence of a provider, on the assumption an image is not yet available.
+	/// - returns: The typographic bounds in points expressed as a rect whose width corresponds to the advance width, maximum Y corresponds to the ascent (above the baseline), and minimum Y corresponds to the descent (below the baseline).
+	/// - seealso: CTAdaptiveImageProviding
+	@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, *)
+	@inlinable func typographicBounds(for provider: (any CTAdaptiveImageProviding)?) -> CGRect {
+		return CTFontGetTypographicBoundsForAdaptiveImageProvider(self, provider)
+	}
+	
+	/// Draws the image for a font and adaptive image provider.
+	///
+	/// Adaptive image glyphs are handled automatically when using an attributed string with system frameworks.
+	/// Clients performing their own typesetting can use this function to display an adaptive image glyph at the given point.
+	/// - parameter provider: An object conforming to the `CTAdaptiveImageProviding` protocol.
+	/// - parameter point: The position relative to which the adaptive image glyph will be drawn.
+	/// - parameter context: The context in which the adaptive image glyph will be drawn.
+	/// - seealso: CTAdaptiveImageProviding
+	@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, *)
+	@inlinable func drawImage(from provider: any CTAdaptiveImageProviding, at point: CGPoint, in context: CGContext) {
+		CTFontDrawImageFromAdaptiveImageProviderAtPoint(self, provider, point, context)
+	}
+	
+	/// Common font tables.
+	enum TableTags: CTFontTableTag {
+		/// Baseline data
+		case tagBASE = 0x42415345
+		
+		/// Color bitmap data
+		case tagCBDT = 0x43424454
+
+		/// Color bitmap location data
+		case tagCBLC = 0x43424c43
+
+		/// Compact Font Format 1.0
+		case tagCFF = 0x43464620
+
+		/// Compact Font Format 2.0
+		case tagCFF2 = 0x43464632
+
+		/// Color table
+		case tagCOLR = 0x434f4c52
+
+		/// Color palette table
+		case tagCPAL = 0x4350414c
+
+		/// Digital signature
+		case tagDSIG = 0x44534947
+
+		/// Embedded bitmap data
+		case tagEBDT = 0x45424454
+
+		/// Embedded bitmap location data
+		case tagEBLC = 0x45424c43
+
+		/// Embedded bitmap scaling data
+		case tagEBSC = 0x45425343
+
+		/// Glyph definition data
+		case tagGDEF = 0x47444546
+
+		/// Glyph positioning data
+		case tagGPOS = 0x47504f53
+
+		/// Glyph substitution data
+		case tagGSUB = 0x47535542
+
+		/// Horizontal metrics variations
+		case tagHVAR = 0x48564152
+
+		/// Justification data
+		case tagJSTF = 0x4a535446
+
+		/// Linear threshold data
+		case tagLTSH = 0x4c545348
+
+		/// Math layout data
+		case tagMATH = 0x4d415448
+
+		/// Merge
+		case tagMERG = 0x4d455247
+
+		/// Metrics variations
+		case tagMVAR = 0x4d564152
+
+		/// OS/2 and Windows specific metrics
+		case tagOS2 = 0x4f532f32
+
+		/// PCL 5 data
+		case tagPCLT = 0x50434c54
+
+		/// Style attributes
+		case tagSTAT = 0x53544154
+
+		/// Scalable vector graphics
+		case tagSVG = 0x53564720
+
+		/// Vertical device metrics
+		case tagVDMX = 0x56444d58
+
+		/// Vertical origin
+		case tagVORG = 0x564f5247
+
+		/// Vertical metrics variations
+		case tagVVAR = 0x56564152
+
+		/// Glyph reference
+		case tagZapf = 0x5a617066
+
+		/// Accent attachment
+		case tagAcnt = 0x61636e74
+
+		/// Anchor points
+		case tagAnkr = 0x616e6b72
+
+		/// Axis variations
+		case tagAvar = 0x61766172
+
+		/// Bitmap data
+		case tagBdat = 0x62646174
+
+		/// Bitmap font header
+		case tagBhed = 0x62686564
+
+		/// Bitmap location
+		case tagBloc = 0x626c6f63
+
+		/// Baseline
+		case tagBsln = 0x62736c6e
+
+		/// CID to glyph mapping
+		case tagCidg = 0x63696467
+
+		/// Character to glyph mapping
+		case tagCmap = 0x636d6170
+
+		/// CVT variations
+		case tagCvar = 0x63766172
+
+		/// Control value table
+		case tagCvt = 0x63767420
+
+		/// Font descriptor
+		case tagFdsc = 0x66647363
+
+		/// Layout feature
+		case tagFeat = 0x66656174
+
+		/// Font metrics
+		case tagFmtx = 0x666d7478
+
+		/// 'FOND' and 'NFNT' data
+		case tagFond = 0x666f6e64
+
+		/// Font program
+		case tagFpgm = 0x6670676d
+
+		/// Font variations
+		case tagFvar = 0x66766172
+
+		/// Grid-fitting/scan-conversion
+		case tagGasp = 0x67617370
+
+		/// Glyph data
+		case tagGlyf = 0x676c7966
+
+		/// Glyph variations
+		case tagGvar = 0x67766172
+
+		/// Horizontal device metrics
+		case tagHdmx = 0x68646d78
+
+		/// Font header
+		case tagHead = 0x68656164
+
+		/// Horizontal header
+		case tagHhea = 0x68686561
+
+		/// Horizontal metrics
+		case tagHmtx = 0x686d7478
+
+		/// Horizontal style
+		case tagHsty = 0x68737479
+
+		/// Justification
+		case tagJust = 0x6a757374
+
+		/// Kerning
+		case tagKern = 0x6b65726e
+
+		/// Extended kerning
+		case tagKerx = 0x6b657278
+
+		/// Ligature caret
+		case tagLcar = 0x6c636172
+
+		/// Index to location
+		case tagLoca = 0x6c6f6361
+
+		/// Language tags
+		case tagLtag = 0x6c746167
+
+		/// Maximum profile
+		case tagMaxp = 0x6d617870
+
+		/// Metadata
+		case tagMeta = 0x6d657461
+
+		/// Morph
+		case tagMort = 0x6d6f7274
+
+		/// Extended morph
+		case tagMorx = 0x6d6f7278
+
+		/// Naming table
+		case tagName = 0x6e616d65
+
+		/// Optical bounds
+		case tagOpbd = 0x6f706264
+
+		/// PostScript information
+		case tagPost = 0x706f7374
+
+		/// CVT program
+		case tagPrep = 0x70726570
+
+		/// Properties
+		case tagProp = 0x70726f70
+
+		/// Bitmap data
+		case tagSbit = 0x73626974
+
+		/// Standard bitmap graphics
+		case tagSbix = 0x73626978
+
+		/// Tracking
+		case tagTrak = 0x7472616b
+
+		/// Vertical header
+		case tagVhea = 0x76686561
+
+		/// Vertical metrics
+		case tagVmtx = 0x766d7478
+
+		/// Cross-reference
+		case tagXref = 0x78726566
 	}
 }

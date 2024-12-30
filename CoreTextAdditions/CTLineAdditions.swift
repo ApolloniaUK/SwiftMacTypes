@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreText.CTLine
+import CoreText
 
 public extension CTLine {
 	/// Options for `CTLine.bounds(with:)`.
@@ -21,13 +21,6 @@ public extension CTLine {
 	/// requested.
 	typealias TruncationType = CTLineTruncationType
 	
-	/// Returns the Core Foundation type identifier for CoreText lines.
-	///
-	/// - returns: The identifier for the opaque type `CTLineRef`.
-	@inlinable class var typeID: CFTypeID {
-		return CTLineGetTypeID()
-	}
-	
 	/// Creates a truncated line from an existing line.
 	/// - parameter width:
 	/// The width at which truncation will begin. The line will be
@@ -36,7 +29,7 @@ public extension CTLine {
 	/// - parameter truncationToken:
 	/// This token will be added to the point where truncation took place
 	/// to indicate that the line was truncated. Usually, the truncation
-	/// token is the ellipsis character (U+2026). If this parameter is
+	/// token is the ellipsis character (`U+2026`). If this parameter is
 	/// set to `nil`, then no truncation token is used, and the line is
 	/// simply cut off. The line specified in `truncationToken` should have
 	/// a width less than the width specified by the `width` parameter. If
@@ -143,7 +136,7 @@ public extension CTLine {
 	/// - returns: The bounds of the line as specified by the type and options,
 	/// such that the coordinate origin is coincident with the line
 	/// origin and the rect origin is at the bottom left. If the line
-	/// is invalid this function will return `nil`.
+	/// is invalid, this function will return `nil`.
 	func bounds(with options: BoundsOptions = []) -> CGRect? {
 		let retVal = CTLineGetBoundsWithOptions(self, options)
 		if retVal.isNull {
@@ -211,7 +204,7 @@ public extension CTLine {
 	
 	/// Determines the graphical offset(s) for a string index.
 	/// - parameter stringIndex: The string index corresponding to the desired position.
-	/// - returns: The primary and secondary offsets along the baseline for charIndex, or `0.0` in
+	/// - returns: The primary and secondary offsets along the baseline for `charIndex`, or `0.0` in
 	/// the event of failure.
 	///
 	/// This function returns the graphical offset(s) corresponding to
@@ -231,8 +224,8 @@ public extension CTLine {
 	}
 
 	/// Enumerates caret offsets for characters in a line.
-	/// - parameter block: The `offset` parameter is relative to the line origin. The `leadingEdge` parameter
-	/// of this block refers to logical order.
+	/// - parameter block: The `offset` parameter is relative to the line origin. The `leadingEdge`
+	/// parameter of this block refers to logical order.
 	/// - parameter offset: Relative to the line origin.
 	/// - parameter stop: Stops the enumeration.
 	/// - parameter leadingEdge: The leading edge in logical order.

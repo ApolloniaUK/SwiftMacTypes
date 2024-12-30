@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 @testable import SwiftAdditions
+@testable import FoundationAdditions
 
 class SwiftAdditionsTests: XCTestCase {
 	
@@ -20,26 +21,6 @@ class SwiftAdditionsTests: XCTestCase {
 	override func tearDown() {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
-	}
-	
-	func testByteOrder() {
-		let bo = Int(OSHostByteOrder())
-		var inferredBo: Int
-		
-		switch ByteOrder.current {
-		case .big:
-			inferredBo = OSBigEndian
-			break
-			
-		case .little:
-			inferredBo = OSLittleEndian
-			break
-			
-		case .unknown:
-			inferredBo = OSUnknownByteOrder
-			break
-		}
-		XCTAssertEqual(inferredBo, bo)
 	}
 	
 	func testNSUUIDTranslators() {

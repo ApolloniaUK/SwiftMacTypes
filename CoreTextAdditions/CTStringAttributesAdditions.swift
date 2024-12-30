@@ -7,13 +7,13 @@
 //
 
 import Foundation
-import CoreText.CTStringAttributes
+import CoreText
 
 extension NSAttributedString.Key {
 	
 	/// Namespace of CoreText attributed string keys.
 	///
-	/// Note that these may overlap or be different than the ones provided by AppKit/UIKit.
+	/// Note that these may overlap *or* be different than the ones provided by AppKit/UIKit.
 	public enum CoreText {
 		/// Allows the setting of an underline to be applied at render time.
 		///
@@ -274,14 +274,26 @@ extension NSAttributedString.Key {
 		/// embeddings or overrides, in order from outermost to innermost,
 		/// with `(kCTWritingDirectionLeftToRight | kCTWritingDirectionEmbedding)`
 		/// corresponding to a LRE/PDF pair in plain text or
-		/// `<span dir="ltr"></span>` in HTML, `(kCTWritingDirectionRightToLeft | kCTWritingDirectionEmbedding)` corresponding to a RLE/PDF
-		/// pair in plain text or a `<span dir="rtl"></span>` in HTML,
+		/// `<span dir="ltr"></span>` in HTML,
+		/// `(kCTWritingDirectionRightToLeft | kCTWritingDirectionEmbedding)`
+		/// corresponding to a RLE/PDF pair in plain text or a `<span dir="rtl"></span>` in HTML,
 		/// `(kCTWritingDirectionLeftToRight | kCTWritingDirectionOverride)`
 		/// corresponding to a LRO/PDF pair in plain text or
-		/// `<bdo dir="ltr"></bdo>` in HTML, and `(kCTWritingDirectionRightToLeft | kCTWritingDirectionOverride)` corresponding to a RLO/PDF
-		/// pair in plain text or `<bdo dir="rtl"></bdo>` in HTML.
+		/// `<bdo dir="ltr"></bdo>` in HTML, and
+		/// `(kCTWritingDirectionRightToLeft | kCTWritingDirectionOverride)`
+		/// corresponding to a RLO/PDF pair in plain text or `<bdo dir="rtl"></bdo>` in HTML.
 		public static var writingDirection: NSAttributedString.Key {
 			return NSAttributedString.Key(rawValue: kCTWritingDirectionAttributeName as String)
+		}
+		
+		/// Provide the image for an emoji-like text attachment.
+		///
+		/// The attribute value must be an object conforming to the `CTAdaptiveImageProviding` protocol.
+		/// The range this attribute is applied to should be one or more *U+FFFC* characters, each of which will be drawn as the provided image,
+		/// and the font attribute applied to that range will be used to determine properties such as point size.
+		@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, *)
+		public static var adaptiveImageProvider: NSAttributedString.Key {
+			return NSAttributedString.Key(rawValue: kCTAdaptiveImageProviderAttributeName as String)
 		}
 	}
 }

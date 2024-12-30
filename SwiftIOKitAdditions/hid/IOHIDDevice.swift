@@ -10,11 +10,6 @@ import Foundation
 import IOKit.hid
 
 public extension IOHIDDevice {
-	/// The type identifier of all `IOHIDDevice` instances.
-	@inlinable class var typeID: CFTypeID {
-		return IOHIDDeviceGetTypeID()
-	}
-	
 	/// Creates an element from an `io_service_t`.
 	///
 	/// The `io_service_t` passed in this method must reference an object
@@ -22,7 +17,7 @@ public extension IOHIDDevice {
 	/// - parameter allocator: Allocator to be used during creation.
 	/// - parameter service: Reference to service object in the kernel.
 	/// - returns: Returns a new `IOHIDDevice`.
-	@inlinable class func create(allocator: CFAllocator?, service: io_service_t) -> IOHIDDevice? {
+	@inlinable class func create(allocator: CFAllocator? = kCFAllocatorDefault, service: io_service_t) -> IOHIDDevice? {
 		return IOHIDDeviceCreate(allocator, service)
 	}
 	
@@ -128,8 +123,8 @@ public extension IOHIDDevice {
 	/// activity.
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
-	func schedule(with runLoop: CFRunLoop, mode runLoopMode: String) {
-		IOHIDDeviceScheduleWithRunLoop(self, runLoop, runLoopMode as NSString)
+	@inlinable func schedule(with runLoop: CFRunLoop, mode runLoopMode: CFString) {
+		IOHIDDeviceScheduleWithRunLoop(self, runLoop, runLoopMode)
 	}
 	
 	/// Unschedules HID device with run loop.
@@ -139,8 +134,8 @@ public extension IOHIDDevice {
 	/// activity.
 	/// - parameter runLoopMode: Run loop mode to be used when unscheduling any
 	/// asynchronous activity.
-	func unschedule(from runLoop: CFRunLoop, mode runLoopMode: String) {
-		IOHIDDeviceUnscheduleFromRunLoop(self, runLoop, runLoopMode as NSString)
+	@inlinable func unschedule(from runLoop: CFRunLoop, mode runLoopMode: CFString) {
+		IOHIDDeviceUnscheduleFromRunLoop(self, runLoop, runLoopMode)
 	}
 	
 	/// Sets the dispatch queue to be associated with the IOHIDDevice.
@@ -364,7 +359,7 @@ public extension IOHIDDevice {
 	/// `IOHIDValueCallback`.
 	/// - parameter context: Pointer to data to be passed to the callback.
 	/// - returns: Returns `kIOReturnSuccess` if successful.
-	func setValue(_ value: IOHIDValue, element: IOHIDElement, timeout: CFTimeInterval, callback: IOHIDValueCallback?, context: UnsafeMutableRawPointer?) -> IOReturn {
+	@inlinable func setValue(_ value: IOHIDValue, element: IOHIDElement, timeout: CFTimeInterval, callback: IOHIDValueCallback?, context: UnsafeMutableRawPointer?) -> IOReturn {
 		return IOHIDDeviceSetValueWithCallback(self, element, value, timeout, callback, context)
 	}
 	
@@ -587,7 +582,7 @@ public extension IOHIDDevice {
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
 	func schedule(with runLoop: RunLoop, mode runLoopMode: RunLoop.Mode) {
-		schedule(with: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue)
+		schedule(with: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue as CFString)
 	}
 	
 	/// Unschedules HID device with run loop.
@@ -598,6 +593,71 @@ public extension IOHIDDevice {
 	/// - parameter runLoopMode: Run loop mode to be used when unscheduling any
 	/// asynchronous activity.
 	func unschedule(from runLoop: RunLoop, mode runLoopMode: RunLoop.Mode) {
-		unschedule(from: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue)
+		unschedule(from: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue as CFString)
+	}
+}
+
+public extension IOHIDDevice {
+	var productKey: String? {
+		return getProperty(forKey: kIOHIDProductKey) as? String
+	}
+	
+	var vendorID: UInt32? {
+		let val = getProperty(forKey: kIOHIDVendorIDKey)
+		return val as? UInt32
+	}
+	
+	var productID: UInt32? {
+		let val = getProperty(forKey: kIOHIDProductIDKey)
+		return val as? UInt32
+	}
+	
+	var locationID: UInt32? {
+		let val = getProperty(forKey: kIOHIDLocationIDKey)
+		return val as? UInt32
+	}
+
+	var usage: UInt32? {
+		let val = getProperty(forKey: kIOHIDPrimaryUsageKey)
+		return val as? UInt32
+	}
+
+	var builtIn: Bool? {
+		let val = getProperty(forKey: kIOHIDBuiltInKey)
+		return val as? Bool
+	}
+
+	var transport: UInt32? {
+		let val = getProperty(forKey: kIOHIDTransportKey) 
+		return val as? UInt32
+	}
+
+	var isMouse: Bool {
+		guard let usage else {
+			return false
+		}
+		return usage == kHIDUsage_GD_Mouse
+	}
+	
+	var usageDescription: String? {
+		if let usage {
+			switch Int(usage) {
+			case kHIDUsage_GD_Mouse:
+				return "Mouse"
+			case kHIDUsage_GD_Joystick:            
+				return "Joystick"
+			case kHIDUsage_GD_GamePad:            
+				return "GamePad"
+			case kHIDUsage_GD_Keyboard:          
+				return "Keyboard"
+			case kHIDUsage_GD_Keypad:      
+				return "Keypad"
+			case kHIDUsage_GD_MultiAxisController: 
+				return "Multi axis controller"
+			default: 
+				break
+			}
+		}
+		return nil
 	}
 }

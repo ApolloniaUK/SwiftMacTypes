@@ -10,11 +10,6 @@ import Foundation
 import IOKit.hid
 
 public extension IOHIDQueue {
-	/// The type identifier of all IOHIDQueue instances.
-	@inlinable class var typeID: CFTypeID {
-		return IOHIDQueueGetTypeID()
-	}
-	
 	/// Creates an IOHIDQueue object for the specified device.
 	///
 	/// Take care in specifying an appropriate depth to prevent dropping
@@ -94,8 +89,8 @@ public extension IOHIDQueue {
 	/// activity.
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
-	func schedule(with runLoop: CFRunLoop, mode runLoopMode: String) {
-		IOHIDQueueScheduleWithRunLoop(self, runLoop, runLoopMode as NSString)
+	@inlinable func schedule(with runLoop: CFRunLoop, mode runLoopMode: CFString) {
+		IOHIDQueueScheduleWithRunLoop(self, runLoop, runLoopMode)
 	}
 	
 	/// Unschedules queue with run loop.
@@ -105,8 +100,8 @@ public extension IOHIDQueue {
 	/// activity.
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
-	func unschedule(from runLoop: CFRunLoop, mode runLoopMode: String) {
-		IOHIDQueueUnscheduleFromRunLoop(self, runLoop, runLoopMode as NSString)
+	@inlinable func unschedule(from runLoop: CFRunLoop, mode runLoopMode: CFString) {
+		IOHIDQueueUnscheduleFromRunLoop(self, runLoop, runLoopMode)
 	}
 
 	/// Sets the dispatch queue to be associated with the IOHIDQueue.
@@ -239,7 +234,7 @@ public extension IOHIDQueue {
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
 	func schedule(with runLoop: RunLoop, mode runLoopMode: RunLoop.Mode) {
-		schedule(with: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue)
+		schedule(with: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue as CFString)
 	}
 	
 	/// Unschedules queue with run loop.
@@ -250,6 +245,6 @@ public extension IOHIDQueue {
 	/// - parameter runLoopMode: Run loop mode to be used when scheduling any
 	/// asynchronous activity.
 	func unschedule(from runLoop: RunLoop, mode runLoopMode: RunLoop.Mode) {
-		unschedule(from: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue)
+		unschedule(from: runLoop.getCFRunLoop(), mode: runLoopMode.rawValue as CFString)
 	}
 }

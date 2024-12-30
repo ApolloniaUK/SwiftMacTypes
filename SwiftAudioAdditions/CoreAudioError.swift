@@ -8,14 +8,13 @@
 
 import Foundation
 import SwiftAdditions
+import AudioToolbox.AudioFile
 #if SWIFT_PACKAGE
 
-public var SAACoreAudioErrorDomain: String {
-	return "com.github.maddthesane.SwiftAudioAdditions.errors"
-}
+public let SAACoreAudioErrorDomain: String = "com.github.maddthesane.SwiftAudioAdditions.errors"
 
-/// Errors found in the audio frameworks of Mac OS X/iOS
-public struct SAACoreAudioError: _BridgedStoredNSError {
+/// Errors found in the audio frameworks of macOS/iOS
+public struct SAACoreAudioError: Error, _BridgedStoredNSError {
 	public let _nsError: NSError
 	
 	public static var _nsErrorDomain: String {
@@ -25,8 +24,8 @@ public struct SAACoreAudioError: _BridgedStoredNSError {
 		return SAACoreAudioErrorDomain
 	}
 	
-	/// Errors found in the audio frameworks of Mac OS X/iOS
-	public enum Code: OSStatus, _ErrorCodeProtocol {
+	/// Errors found in the audio frameworks of macOS/iOS
+	public enum Code: OSStatus, _ErrorCodeProtocol, @unchecked Sendable, Equatable {
 		public typealias _ErrorType = SAACoreAudioError
 
 		case invalidProperty = -10879

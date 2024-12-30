@@ -14,7 +14,7 @@ import Foundation
 ///
 /// This list is in no way, shape, or form exhaustive! A lot of the other
 /// errors make no sense under Mac OS X but were needed for pre-OS X systems.
-public struct SAMacError: _BridgedStoredNSError {
+public struct SAMacError: Error, _BridgedStoredNSError {
 	public let _nsError: NSError
 
 	public init(_nsError: NSError) {
@@ -28,7 +28,7 @@ public struct SAMacError: _BridgedStoredNSError {
 	///
 	/// This list is in no way, shape, or form exhaustive! A lot of the other
 	/// errors make no sense under Mac OS X but were needed for pre-OS X systems.
-	public enum Code: OSStatus, _ErrorCodeProtocol {
+	public enum Code: OSStatus, _ErrorCodeProtocol, Hashable, @unchecked Sendable, Equatable {
 		public typealias _ErrorType = SAMacError
 		
 		/// error in user parameter list
@@ -169,7 +169,7 @@ public struct SAMacError: _BridgedStoredNSError {
 #endif
 
 public extension SAMacError.Code {
-	/// is `nil` if value is too big for `OSErr`.
+	/// is `nil` if value cannot fit into `OSErr`.
 	var toOSErr: OSErr? {
 		return OSErr(exactly: rawValue)
 	}
@@ -180,25 +180,13 @@ public extension SAMacError.Code {
 }
 
 public extension SAMacError {
-	/// This throws the passed-in error as an `NSOSStatusErrorDomain` error.
-	///
-	/// `SAMacError` is not exhaustive: not every Mac OS 9/Carbon error is used!
-	/// Catching `SAMacError` may also catch error values that aren't included in
-	/// the `SAMacError.Code` enum.
-	/// - parameter userInfo: Additional user info dictionary. Optional, default value is a
-	/// blank dictionary.
-	/// - parameter status: The `OSStatus` to throw as an `NSOSStatusErrorDomain` error.
-	static func throwOSStatus(_ status: OSStatus, userInfo: [String: Any] = [:]) throws {
-		throw osStatus(status, userInfo: userInfo)
-	}
-	
 	/// This creates an error based on the `status` and anything passed into the `userInfo` dictionary.
 	///
 	/// `SAMacError` is not exhaustive: not every Mac OS 9/Carbon error is used!
 	/// Catching `SAMacError` may also catch error values that aren't included in
 	/// the `SAMacError.Code` enum.
-	/// - parameter userInfo: Additional user info dictionary. Optional, default value is a
-	/// blank dictionary.
+	/// - parameter userInfo: Additional user info dictionary. Optional, default value is an
+	/// empty dictionary.
 	/// - parameter status: The `OSStatus` to create an error in the `NSOSStatusErrorDomain` error domain.
 	/// - returns: An object conforming to the `Error` protocol, either `SAMacError` or `NSError`.
 	static func osStatus(_ status: OSStatus, userInfo: [String: Any] = [:]) -> Error {
@@ -208,23 +196,7 @@ public extension SAMacError {
 		return NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: userInfo)
 	}
 
-	
-	/// This throws the passed-in error as an `NSOSStatusErrorDomain` error.
-	///
-	/// `SAMacError` is not exhaustive: not every Mac OS 9/Carbon error is used!
-	/// Catching `SAMacError` may also catch error values that aren't included in
-	/// the `SAMacError.Code` enum.
-	///
-	/// `OSErr`s are returned by older APIs. These APIs may be deprecated and not available to
-	/// Swift.
-	/// - parameter userInfo: Additional user info dictionary. Optional, default value is a
-	/// blank dictionary.
-	/// - parameter status: The `OSErr` to throw as an `NSOSStatusErrorDomain` error.
-	static func throwOSErr(_ status: OSErr, userInfo: [String: Any] = [:]) throws {
-		throw osErr(status, userInfo: userInfo)
-	}
-	
-	/// This throws the passed-in error as an `NSOSStatusErrorDomain` error.
+	/// This creates an error based on the `status` and anything passed into the `userInfo` dictionary.
 	///
 	/// `SAMacError` is not exhaustive: not every Mac OS 9/Carbon error is used!
 	/// Catching `SAMacError` may also catch error values that aren't included in
@@ -242,5 +214,4 @@ public extension SAMacError {
 		}
 		return NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: userInfo)
 	}
-
 }

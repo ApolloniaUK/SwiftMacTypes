@@ -1,21 +1,31 @@
-// swift-tools-version:4.0
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "SwiftAdditions",
+	platforms: [.macOS(.v11), .iOS(.v14), .watchOS(.v7), .tvOS(.v14)],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
+		.library(
+			name: "FoundationAdditions",
+			targets: ["FoundationAdditions"]),
         .library(
             name: "SwiftAdditions",
             targets: ["SwiftAdditions"]),
         .library(
             name: "SwiftAudioAdditions",
             targets: ["SwiftAudioAdditions"]),
-        //.library(
-        //    name: "CoreTextAdditions",
-        //    targets: ["CoreTextAdditions"]),
+        .library(
+           name: "CoreTextAdditions",
+           targets: ["CoreTextAdditions"]),
+		.library(
+		   name: "TISAdditions",
+		   targets: ["TISAdditions"]),
+		.library(
+		   name: "UTTypeOSTypes",
+		   targets: ["UTTypeOSTypes"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -26,7 +36,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "SwiftAdditions",
-            dependencies: [],
+            dependencies: ["FoundationAdditions"],
             path: "SwiftAdditions",
             exclude: ["SAMacError.m"]),
         .testTarget(
@@ -35,20 +45,47 @@ let package = Package(
             path: "SwiftAdditionsTests"),
         .target(
             name: "SwiftAudioAdditions",
-            dependencies: ["SwiftAdditions"],
+            dependencies: ["FoundationAdditions", "SwiftAdditions"],
             path: "SwiftAudioAdditions",
             exclude: ["SAAError.m"]),
         .testTarget(
             name: "SwiftAudioAdditionsTests",
             dependencies: ["SwiftAdditions", "SwiftAudioAdditions"],
             path: "SwiftAudioAdditionsTests"),
-        //.target(
-        //    name: "CoreTextAdditions",
-        //    dependencies: ["SwiftAdditions"],
-        //    path: "CoreTextAdditions"),
-        //.testTarget(
-        //    name: "CoreTextAdditionsTests",
-        //    dependencies: ["SwiftAdditions", "CoreTextAdditions"],
-        //    path: "CoreTextAdditionsTests"),
+        .target(
+            name: "CoreTextAdditions",
+            dependencies: ["FoundationAdditions", "CTAdditionsSwiftHelpers"],
+            path: "CoreTextAdditions"),
+		.target(
+			name: "CTAdditionsSwiftHelpers",
+			path: "CTAdditionsSwiftHelpers"),
+        .testTarget(
+            name: "CoreTextAdditionsTests",
+            dependencies: ["SwiftAdditions", "FoundationAdditions", "CoreTextAdditions"],
+            path: "CoreTextAdditionsTests"),
+        .target(
+            name: "FoundationAdditions",
+            dependencies: [],
+            path: "FoundationAdditions"),
+        .testTarget(
+            name: "FoundationAdditionsTests",
+            dependencies: ["SwiftAdditions", "FoundationAdditions"],
+            path: "FoundationAdditionsTests"),
+		.target(
+			name: "TISAdditions",
+			dependencies: ["SwiftAdditions", "FoundationAdditions"],
+			path: "TISAdditions"),
+		.testTarget(
+			name: "TISAdditionsTests",
+			dependencies: ["SwiftAdditions", "FoundationAdditions", "TISAdditions"],
+			path: "TISAdditionsTests"),
+		.target(
+			name: "UTTypeOSTypes",
+			dependencies: [],
+			path: "UTTypeOSTypes"),
+		.testTarget(
+			name: "UTTypeOSTypesTests",
+			dependencies: ["UTTypeOSTypes"],
+			path: "UTTypeOSTypesTests"),
     ]
 )

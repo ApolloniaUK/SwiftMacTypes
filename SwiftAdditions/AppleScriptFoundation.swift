@@ -14,6 +14,7 @@ import Foundation
 			let errNum = dict[NSAppleScript.errorNumber] as? Int ?? errOSAScriptError
 			
 			dict[NSLocalizedFailureReasonErrorKey] = dict[NSAppleScript.errorMessage]
+			dict[NSDebugDescriptionErrorKey] = dict[NSAppleScript.errorMessage]
 			dict[NSLocalizedDescriptionKey] = dict[NSAppleScript.errorBriefMessage]
 			return NSError(domain: NSOSStatusErrorDomain, code: errNum, userInfo: dict)
 		} else {
@@ -78,12 +79,6 @@ import Foundation
 			} else {
 				throw getError(dict: errDict)
 			}
-		}
-		
-		/// Deprecated, use `execute(event:) throws` instead.
-		@available(swift, introduced: 2.0, deprecated: 5.0, obsoleted: 6.0, renamed: "execute(event:)")
-		@nonobjc func executeAppleEvent(_ event: NSAppleEventDescriptor) throws -> NSAppleEventDescriptor {
-			return try execute(event: event)
 		}
 	}
 #endif

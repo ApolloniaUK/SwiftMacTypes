@@ -7,18 +7,11 @@
 //
 
 import Foundation
-import CoreText.CTTextTab
+import CoreText
 
 public extension CTTextTab {
 	/// These constants specify text alignment.
 	typealias Alignment = CTTextAlignment
-	
-	/// Returns the Core Foundation type identifier for CoreText runs.
-	///
-	/// - returns: The identifier for the opaque type `CTTextTabRef`.
-	@inlinable class var typeID: CFTypeID {
-		return CTTextTabGetTypeID()
-	}
 	
 	/// Creates and initializes a new text tab.
 	/// - parameter alignment: The tab's alignment. This is used to determine the position

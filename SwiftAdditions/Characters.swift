@@ -9,7 +9,7 @@
 import Foundation
 
 /// Based off of the ASCII code tables
-public enum ASCIICharacter: Int8, Comparable, Hashable {
+public enum ASCIICharacter: Int8, Comparable, Hashable, Sendable {
 	// MARK: non-visible characters
 	// TODO: add info for each value.
 	case nullCharacter = 0
@@ -198,7 +198,7 @@ public extension ASCIICharacter {
 			return "\u{FFFD}"
 		}
 		
-		return Character(UnicodeScalar(UInt8(numVal)))
+		return Character(Unicode.Scalar(UInt8(numVal)))
 	}
 }
 

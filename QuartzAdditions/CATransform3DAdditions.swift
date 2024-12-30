@@ -80,7 +80,7 @@ public extension CATransform3D {
 	
 	/// Translate this transform by `(tx, ty, tz)` and return the result:
 	/// **self' = translate(tx, ty, tz) * self**.
-	func translated(tx: CGFloat, ty: CGFloat, tz: CGFloat) -> CATransform3D {
+	@inlinable func translated(tx: CGFloat, ty: CGFloat, tz: CGFloat) -> CATransform3D {
 		return CATransform3DTranslate(self, tx, ty, tz)
 	}
 	
@@ -136,7 +136,7 @@ public extension CATransform3D {
 	}
 }
 
-extension CATransform3D: Equatable {
+extension CATransform3D: @retroactive Equatable {
 	/// Concatenate `rhs` to `lhs` and sets `lhs` to the result: **lhs = lhs * rhs**.
 	@inlinable public static func +=(lhs: inout CATransform3D, rhs: CATransform3D) {
 		lhs = CATransform3DConcat(lhs, rhs)

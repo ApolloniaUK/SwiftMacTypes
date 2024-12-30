@@ -27,7 +27,7 @@ private func OSTypeToStr(_ val: OSType) -> String {
 	return toRet
 }
 
-extension AudioStreamBasicDescription: Hashable {
+extension AudioStreamBasicDescription: @retroactive Hashable {
 	public func hash(into hasher: inout Hasher) {
 		mSampleRate.hash(into: &hasher)
 		mFormatID.hash(into: &hasher)
@@ -41,15 +41,15 @@ extension AudioStreamBasicDescription: Hashable {
 	}
 }
 
-public class AudioFileFormats {
-	public static let shared = AudioFileFormats()
+public final class AudioFileFormats {
+	@MainActor public static let shared = AudioFileFormats()
 	
-	public struct DataFormatInfo: CustomDebugStringConvertible, Hashable {
-		var formatID: OSType = 0
-		var variants = [AudioStreamBasicDescription]()
-		var readable = false
-		var writable = false
-		var eitherEndianPCM = false
+	public struct DataFormatInfo: CustomDebugStringConvertible, Hashable, Sendable {
+		public internal(set) var formatID: OSType = 0
+		public internal(set) var variants = [AudioStreamBasicDescription]()
+		public internal(set) var readable = false
+		public internal(set) var writable = false
+		public internal(set) var eitherEndianPCM = false
 		
 		public var debugDescription: String {
 			func ny(_ val: Bool) -> String {
@@ -59,7 +59,7 @@ public class AudioFileFormats {
 					return " not"
 				}
 			}
-			var toRet = "    '\(OSTypeToStr(formatID))': \(ny(readable))readable \(ny(writable))writable\n"
+			var toRet = "    '\(OSTypeToStr(formatID))':\(ny(readable)) readable\(ny(writable)) writable\n"
 			for variant in variants {
 				toRet += "      \(variant.description)\n"
 			}
@@ -68,7 +68,7 @@ public class AudioFileFormats {
 		}
 	}
 	
-	public struct FileFormatInfo: CustomDebugStringConvertible {
+	public struct FileFormatInfo: CustomDebugStringConvertible, Sendable {
 		public var fileTypeID = AudioFileTypeID()
 		public var fileTypeName = ""
 		public var extensions = [String]()
@@ -229,20 +229,25 @@ public class AudioFileFormats {
 			// file type name
 			do {
 				size = UInt32(MemoryLayout<CFString>.size)
-				var fileName: CFString? = nil
+				var fileName: UnsafeMutableRawPointer? = nil
 				err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_FileTypeName, UInt32(MemoryLayout<UInt32>.size), &filetype, &size, &fileName)
-				if let fileName2 = fileName as String? {
-					ffi.fileTypeName = fileName2
+				
+				if let fileName {
+					let fileName2 = Unmanaged<CFString>.fromOpaque(fileName)
+					ffi.fileTypeName = fileName2.takeUnretainedValue() as String
 				}
 			}
 			
 			// file extensions
 			do {
 				size = UInt32(MemoryLayout<CFArray>.size)
-				var extensions: CFArray? = nil
+				var extensions: UnsafeMutableRawPointer? = nil
 				err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_ExtensionsForType, UInt32(MemoryLayout<UInt32>.size), &filetype, &size, &extensions)
-				if let ext2 = extensions as? [String] {
-					ffi.extensions = ext2
+				if let extensions {
+					let ext2 = Unmanaged<CFArray>.fromOpaque(extensions).takeUnretainedValue()
+					if let ext3 = ext2 as? [String] {
+						ffi.extensions = ext3
+					}
 				}
 			}
 			
@@ -322,7 +327,7 @@ public class AudioFileFormats {
 				}
 			}
 		}
-		if let theFileFormat = theFileFormat {
+		if let theFileFormat {
 			return theFileFormat.fileTypeID
 		}
 		return nil

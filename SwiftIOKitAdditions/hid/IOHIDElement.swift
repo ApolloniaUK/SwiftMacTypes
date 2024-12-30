@@ -20,11 +20,6 @@ public extension IOHIDElement {
 	/// Used by the IOHIDFamily to identify the type of element processed. Represented by the key `kIOHIDElementTypeKey` in the dictionary describing the element.
 	typealias ElementType = IOHIDElementType
 	
-	/// Returns the type identifier of all `IOHIDElement` instances.
-	@inlinable class var typeID: CFTypeID {
-		return IOHIDDeviceGetTypeID()
-	}
-	
 	/// Creates an element from a dictionary.
 	///
 	/// The dictionary should contain keys defined in *IOHIDKeys.h* and start with *kIOHIDElement*.  This call is meant be used by a `IOHIDDeviceDeviceInterface` object.
@@ -58,7 +53,7 @@ public extension IOHIDElement {
 	///
 	/// This is useful for grouping HID elements with related functionality.
 	/// - parameter toAttach: The element to be attached.
-	@inlinable func attach(_ toAttach: IOHIDElement) {
+	@inlinable func attach(to toAttach: IOHIDElement) {
 		IOHIDElementAttach(self, toAttach)
 	}
 	
@@ -66,7 +61,7 @@ public extension IOHIDElement {
 	///
 	/// This is useful for grouping HID elements with related functionality.
 	/// - parameter toDetach: The element to be detached.
-	@inlinable func detatch(_ toDetach: IOHIDElement) {
+	@inlinable func detatch(from toDetach: IOHIDElement) {
 		return IOHIDElementDetach(self, toDetach)
 	}
 	

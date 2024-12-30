@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreText.CTFontManager
+import CoreText
 
 /// Namespace for CoreText's Font Manager functions.
 public enum FontManager {
@@ -15,33 +15,37 @@ public enum FontManager {
 	public typealias AutoActivationSetting = CTFontManagerAutoActivationSetting
 	
 	/// These constants define the scope for font registration.
+	///
+	/// On macOS, a user session refers to a login session. On
+	/// iOS, a user session refers to the current booted session.
 	public typealias Scope = CTFontManagerScope
 	
 	/// An array of unique PostScript font names.
 	@available(OSX 10.6, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 	public static var availablePostScriptNames: [String] {
-		return CTFontManagerCopyAvailablePostScriptNames() as NSArray as! [String]
+		return CTFontManagerCopyAvailablePostScriptNames() as! [String]
 	}
 	
 	/// An array of visible font family names sorted for UI display.
 	@available(OSX 10.6, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 	public static var availableFontFamilyNames: [String] {
-		return CTFontManagerCopyAvailableFontFamilyNames() as NSArray as! [String]
+		return CTFontManagerCopyAvailableFontFamilyNames() as! [String]
 	}
 	
 	#if os(OSX)
 	/// An array of font URLs.
 	@available(OSX 10.6, *)
 	public static var availableFontURLs: [URL] {
-		return CTFontManagerCopyAvailableFontURLs() as NSArray as! [URL]
+		return CTFontManagerCopyAvailableFontURLs() as! [URL]
 	}
 	#endif
 	
-	/// Registers fonts from the specified font URLs with the font manager. Registered fonts are discoverable through font descriptor matching in the calling process.
+	/// Registers fonts from the specified font URLs with the font manager. Registered fonts are discoverable
+	/// through font descriptor matching in the calling process.
 	///
 	/// In iOS, fonts registered with the persistent scope are not automatically available
 	/// to other processes. Other process may call `CTFontManagerRequestFonts` to get access
-	///  to these fonts.
+	/// to these fonts.
 	/// - parameter fontURLs: Array of font URLs.
 	/// - parameter scope: Scope constant defining the availability and lifetime of the
 	/// registration. See scope constants for more details.
@@ -58,11 +62,11 @@ public enum FontManager {
 	/// handler should return `false` if the operation is to be stopped. This may be
 	/// desirable after receiving an error.
 	@available(OSX 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-	public static func register(fontURLs: [URL], scope: Scope, enabled: Bool, registrationHandler: ((_ errors: [Error], _ done: Bool) -> Bool)?) {
+	public static func register(fontURLs: [URL], scope: Scope, enabled: Bool, registrationHandler: ((_ errors: [any Error], _ done: Bool) -> Bool)?) {
 		let regHand: ((CFArray, Bool) -> Bool)?
 		if let newHand = registrationHandler {
 			regHand = { (errs, isDone) -> Bool in
-				return newHand(errs as! [Error], isDone)
+				return newHand(errs as! [any Error], isDone)
 			}
 		} else {
 			regHand = nil
@@ -90,11 +94,11 @@ public enum FontManager {
 	/// return `false` if the operation is to be stopped. This may be desirable after
 	/// receiving an error.
 	@available(OSX 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-	public static func unregister(fontURLs: [URL], scope: Scope, registrationHandler: (([Error], Bool) -> Bool)?) {
+	public static func unregister(fontURLs: [URL], scope: Scope, registrationHandler: ((_ errors: [any Error], _ done: Bool) -> Bool)?) {
 		let regHand: ((CFArray, Bool) -> Bool)?
 		if let newHand = registrationHandler {
 			regHand = { (errs, isDone) -> Bool in
-				return newHand(errs as! [Error], isDone)
+				return newHand(errs as! [any Error], isDone)
 			}
 		} else {
 			regHand = nil
@@ -132,11 +136,11 @@ public enum FontManager {
 	/// completed. The handler should return `false` if the operation is to be stopped. This
 	/// may be desirable after receiving an error.
 	@available(OSX 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-	public static func register(fontDescriptors: [CTFontDescriptor], scope: Scope, enabled: Bool, registrationHandler: (([Error], Bool) -> Bool)?) {
+	public static func register(fontDescriptors: [CTFontDescriptor], scope: Scope, enabled: Bool, registrationHandler: ((_ errors: [any Error], _ done: Bool) -> Bool)?) {
 		let regHand: ((CFArray, Bool) -> Bool)?
 		if let newHand = registrationHandler {
 			regHand = { (errs, isDone) -> Bool in
-				return newHand(errs as! [Error], isDone)
+				return newHand(errs as! [any Error], isDone)
 			}
 		} else {
 			regHand = nil
@@ -153,8 +157,8 @@ public enum FontManager {
 	/// for more details.
 	/// - parameter registrationHandler: Block called as errors are discovered or upon
 	/// completion. The errors parameter will be an empty array if all font descriptors are
-	/// unregistered. Otherwise, it will contain an array of `CFError` references. Each error
-	/// reference will contain a `CFArray` of font descriptors corresponding to
+	/// unregistered. Otherwise, it will contain an array of `Error` references. Each error
+	/// reference will contain an `Array` of font descriptors corresponding to
 	/// `kCTFontManagerErrorFontDescriptorsKey`. These represent the font descriptors that
 	/// caused the error, and were not successfully unregistered. Note, the handler may be
 	/// called multiple times during the unregistration process. The `done` (second)
@@ -162,11 +166,11 @@ public enum FontManager {
 	/// handler should return `false` if the operation is to be stopped. This may be
 	/// desirable after receiving an error.
 	@available(OSX 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-	public static func unregister(fontDescriptors: [CTFontDescriptor], scope: Scope, registrationHandler: (([Error], Bool) -> Bool)?) {
+	public static func unregister(fontDescriptors: [CTFontDescriptor], scope: Scope, registrationHandler: ((_ errors: [any Error], _ done: Bool) -> Bool)?) {
 		let regHand: ((CFArray, Bool) -> Bool)?
 		if let newHand = registrationHandler {
 			regHand = { (errs, isDone) -> Bool in
-				return newHand(errs as! [Error], isDone)
+				return newHand(errs as! [any Error], isDone)
 			}
 		} else {
 			regHand = nil
@@ -200,7 +204,8 @@ public enum FontManager {
 	#endif
 	
 	/// Returns an array of font descriptors representing each of the fonts in the specified URL.
-	/// Note: these font descriptors are not available through font descriptor matching.
+	///
+	/// **Note:** these font descriptors are not available through font descriptor matching.
 	/// - parameter fileURL: A file system URL referencing a valid font file.
 	/// - returns: An array of `CTFontDescriptor`s or `nil` if there are no valid fonts.
 	@available(OSX 10.6, iOS 7.0, watchOS 2.0, tvOS 9.0, *)
@@ -209,7 +214,8 @@ public enum FontManager {
 	}
 	
 	/// Returns a font descriptor representing the font in the supplied data.
-	/// Note: the font descriptor is not available through font descriptor matching.
+	///
+	/// **Note:** the font descriptor is not available through font descriptor matching.
 	/// - parameter data: A `Data` containing font data.
 	/// - returns: A font descriptor created from the data or `nil` if it is not a valid font.
 	///
@@ -221,7 +227,8 @@ public enum FontManager {
 	}
 	
 	/// Returns an array of font descriptors for the fonts in the supplied data.
-	/// Note: the font descriptors are not available through font descriptor matching.
+	///
+	/// **Note:** the font descriptors are not available through font descriptor matching.
 	/// - parameter data: A `Data` containing font data.
 	/// - returns: An array of font descriptors. This can be an empty array in the event of
 	/// invalid or unsupported font data.
@@ -243,15 +250,16 @@ public enum FontManager {
 			if let maybeErr = maybeErr?.takeRetainedValue() {
 				throw maybeErr
 			} else {
-				throw NSError(domain: NSCocoaErrorDomain, code: -1, userInfo: [NSURLErrorKey: fontURL])
+				throw CocoaError(.fileReadUnknown, userInfo: [NSURLErrorKey: fontURL])
 			}
 		}
 	}
 	
 	/// Unregisters fonts from the specified font URL with the font manager. Unregistered fonts do not
 	/// participate in font descriptor matching.
-	/// iOS note: only fonts registered with `FontManager.registerFonts(for:)`, `CTFontManagerRegisterFontsForURLs`,
-	/// or `CTFontManagerRegisterFontsForURLs` can be unregistered with this API.
+	///
+	/// iOS note: only fonts registered with `FontManager.registerFonts(for:)` or
+	/// `CTFontManagerRegisterFontsForURLs` can be unregistered with this API.
 	/// - parameter fontURL: Font URL.
 	/// - parameter scope: Scope constant defining the availability and lifetime of the registration. Should
 	/// match the scope the fonts are registered in. See scope constants for more details.
@@ -263,28 +271,30 @@ public enum FontManager {
 			if let maybeErr = maybeErr?.takeRetainedValue() {
 				throw maybeErr
 			} else {
-				throw NSError(domain: NSCocoaErrorDomain, code: -1, userInfo: [NSURLErrorKey: fontURL])
+				throw CTAFontManagerError(.unsupportedScope, userInfo: [NSURLErrorKey: fontURL, (kCTFontManagerErrorFontURLsKey as String): [fontURL]])
 			}
 		}
 	}
 
 	/// Registers the specified graphics font with the font manager. Registered fonts participate in font
 	/// descriptor matching.
+	///
 	/// Attempts to register a font that is either already registered or contains the same PostScript name of
 	/// an already registered font will fail.
+	///
 	/// This functionality is useful for fonts that may be embedded in documents or present/constructed in
-	/// memory. A graphics font is obtained by calling `CGFontCreateWithDataProvider`. Fonts that are backed by
-	/// files should be registered using `FontManager.registerFonts(at:scope:)`.
+	/// memory. A graphics font is obtained by calling `CGFontCreateWithDataProvider`. Fonts that are
+	/// backed by files should be registered using `FontManager.registerFonts(at:scope:)`.
 	/// - parameter font: Graphics font to be registered.
 	@available(OSX 10.8, iOS 4.1, watchOS 2.0, tvOS 9.0, *)
-	public static func registerGraphicsFont(_ font: CGFont) throws {
+	public static func register(_ font: CGFont) throws {
 		var maybeErr: Unmanaged<CFError>? = nil
 		let toRet = CTFontManagerRegisterGraphicsFont(font, &maybeErr)
 		guard toRet else {
 			if let maybeErr = maybeErr?.takeRetainedValue() {
 				throw maybeErr
 			} else {
-				throw NSError(domain: NSCocoaErrorDomain, code: -1)
+				throw CTAFontManagerError(.unsupportedScope)
 			}
 		}
 	}
@@ -293,14 +303,14 @@ public enum FontManager {
 	/// font descriptor matching.
 	/// - parameter font: Graphics font to be unregistered.
 	@available(OSX 10.8, iOS 4.1, watchOS 2.0, tvOS 9.0, *)
-	public static func unregisterGraphicsFont(_ font: CGFont) throws {
+	public static func unregister(_ font: CGFont) throws {
 		var maybeErr: Unmanaged<CFError>? = nil
 		let toRet = CTFontManagerUnregisterGraphicsFont(font, &maybeErr)
 		guard toRet else {
 			if let maybeErr = maybeErr?.takeRetainedValue() {
 				throw maybeErr
 			} else {
-				throw NSError(domain: NSCocoaErrorDomain, code: -1)
+				throw CTAFontManagerError(.unsupportedScope)
 			}
 		}
 	}
@@ -329,7 +339,7 @@ public enum FontManager {
 	/// `CTFontManagerRequestFonts`.
 	/// - parameter registrationHandler: Block called as errors are discovered, or upon
 	/// completion. The errors parameter contains an array of `CFError` references. An empty
-	/// array indicates no errors. Each error reference will contain a `CFArray` of font
+	/// array indicates no errors. Each error reference will contain a `Array` of font
 	/// asset names corresponding to `kCTFontManagerErrorFontAssetNameKey`. These represent
 	/// the font asset names that were not successfully registered. Note, the handler may be
 	/// called multiple times during the registration process. The `done` (second) parameter
@@ -337,7 +347,7 @@ public enum FontManager {
 	/// return `false` if the operation is to be stopped. This may be desirable after
 	/// receiving an error.
 	@available(iOS 13.0, *)
-	public static func registerFonts(withAssetNames fontAssetNames: [String], bundle: CFBundle? = nil, scope: Scope, enabled: Bool, registrationHandler: (([Error], Bool) -> Bool)?) {
+	public static func registerFonts(withAssetNames fontAssetNames: [String], bundle: CFBundle? = nil, scope: Scope, enabled: Bool, registrationHandler: ((_ errors: [Error], _ done: Bool) -> Bool)?) {
 		let regHand: ((CFArray, Bool) -> Bool)?
 		if let newHand = registrationHandler {
 			regHand = { (errs, isDone) -> Bool in
@@ -355,14 +365,14 @@ public enum FontManager {
 	/// Enables the matching font descriptors for font descriptor matching.
 	/// - parameter descriptors: Array of font descriptors.
 	@available(OSX 10.6, *)
-	public static func enableFontDescriptors(_ descriptors: [CTFontDescriptor]) {
+	public static func enable(_ descriptors: [CTFontDescriptor]) {
 		CTFontManagerEnableFontDescriptors(descriptors as NSArray, true)
 	}
 
 	/// Disables the matching font descriptors for font descriptor matching.
 	/// - parameter descriptors: Array of font descriptors.
 	@available(OSX 10.6, *)
-	public static func disableFontDescriptors(_ descriptors: [CTFontDescriptor]) {
+	public static func disable(_ descriptors: [CTFontDescriptor]) {
 		CTFontManagerEnableFontDescriptors(descriptors as NSArray, false)
 	}
 	
@@ -370,7 +380,7 @@ public enum FontManager {
 	/// - parameter fontURL: The font URL.
 	/// - returns: Returns the registration scope of the specified URL, will return `FontManager.Scope.none` if
 	/// not currently registered.
-	@available(OSX 10.6, *)
+	@available(OSX 10.6, *) @inlinable
 	public static func scope(for fontURL: URL) -> Scope {
 		return CTFontManagerGetScopeForURL(fontURL as NSURL)
 	}
@@ -379,7 +389,7 @@ public enum FontManager {
 	/// - parameter fontURL: A URL to font data.
 	/// - returns: This function returns `true` if the URL represents a valid font that can be used on the
 	/// current platform.
-	@available(OSX 10.6, *)
+	@available(OSX 10.6, *) @inlinable
 	public static func isSupportedFont(at fontURL: URL) -> Bool {
 		return CTFontManagerIsSupportedFont(fontURL as NSURL)
 	}
@@ -394,9 +404,9 @@ public enum FontManager {
 	/// - parameter sourceOrder: The order of the created run loop source.
 	/// - parameter createMatchesCallback: A block to handle the font request.
 	/// - returns: A `CFRunLoopSource` that should be added to the run loop. To stop receiving requests,
-	/// invalidate this run loop source. Will return `nil` on error, in the case of a duplicate requestPortName
+	/// invalidate this run loop source. Will return `nil` on error, in the case of a duplicate `requestPortName`
 	/// or invalid context structure.
-	@available(OSX 10.6, *)
+	@available(OSX, introduced: 10.6, deprecated: 11.0, message: "This functionality will be removed in a future release")
 	@inlinable public static func createFontRequestRunLoopSource(order sourceOrder: Int, _ createMatchesCallback: @escaping @convention(block) (_ requestAttributes: CFDictionary, _ requestingProcess: pid_t) -> Unmanaged<CFArray>) -> CFRunLoopSource? {
 			return CTFontManagerCreateFontRequestRunLoopSource(sourceOrder, createMatchesCallback)
 	}
@@ -414,7 +424,7 @@ public enum FontManager {
 	/// - parameter setting: The new setting.
 	///
 	/// Function will apply the setting to the appropriate preferences location.
-	@available(OSX 10.6, *)
+	@available(OSX 10.6, *) @inlinable
 	public static func setAutoActivationSetting(forBundleIdentifier bundleIdentifier: String?, setting: AutoActivationSetting) {
 		CTFontManagerSetAutoActivationSetting(bundleIdentifier as NSString?, setting)
 	}
@@ -424,7 +434,7 @@ public enum FontManager {
 	/// If `nil`, the current application bundle will be used. If `FontManager.bundleIdentifier` is specified,
 	/// will get the global auto-activation settings.
 	/// - returns: Will return the auto-activation setting for specified bundle identifier.
-	@available(OSX 10.6,*)
+	@available(OSX 10.6,*) @inlinable
 	public static func autoActivationSetting(forBundleIdentifier bundleIdentifier: String?) -> AutoActivationSetting {
 		return CTFontManagerGetAutoActivationSetting(bundleIdentifier as NSString?)
 	}
@@ -434,12 +444,15 @@ public enum FontManager {
 	///
 	/// This is the string to use as the notification name when subscribing to `CTFontManager` notifications.
 	/// This notification will be posted when fonts are added or removed.
-	/// OS X clients should register as an observer of the notification with the distributed notification
+	///
+	/// macOS clients should register as an observer of the notification with the distributed notification
 	/// center for changes in session or user scopes and with the local notification center for changes in
 	/// process scope.
+	///
 	/// iOS clients should register as an observer of the notification with the local notification center for
 	/// all changes.
 	@available(OSX 10.6, iOS 7.0, watchOS 2.0, tvOS 9.0, *)
+	@inlinable
 	public static var registeredFontsChanged: Notification.Name {
 		return Notification.Name(kCTFontManagerRegisteredFontsChangedNotification as String)
 	}
